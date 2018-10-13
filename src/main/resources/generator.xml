@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!--资源集中管理标签，下文中可使用${}占位符的方式使用该资源-->
+    <!--<properties resource="" url=""/>-->
+
+    <!--在MyBatis运行时需要额外加载的资源（比如：zip或者jar）
+        location:资源的全路径名称-->
+    <!--<classPathEntry location=""/>-->
+
+    <!--环境配置(参考 Context.class)
+    id:该环境的唯一标识，必填项；如有异常使用该名称显示
+    targetRuntime:
+        1)mybatis3：默认值，基于mybatis3.x以上规则生成，包括生成xxxBySample
+        2)mybatis3Simple 类似于mybatis3，但不生成xxxBySimple对象
+    defaultModelType:直接影响实体类生成的规则(查看ModelType.class)
+        1)hierachical:对表中的主键生成一个实体类，针对Blob字段生成一个实体类，其他的字段再单独一个实体类，实体类之间维护继承关系
+        2)conditional:（默认值）类似于hierachical
+        3)flat:(推荐)没一张表只生成一个实体类，实体类中包含了所有的字段
+        此三种modelType对应三种生成Model的rules:HierarchicalModelRules、ConditionalModelRules、FlatModelRules
+        如果想要修改生成规则，则重写rules中的方法
+        introspectedColumnImpl: 类全限定名，用于扩展使用（意义待定）-->
+    <context id="mybatis3" targetRuntime="mybatis3" defaultModelType="flat">
+
+        <!--property设置额外的属性-->
+        <!--设置生成的java文件的字符集编码-->
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <!--数据库连接配置；必填项-->
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql:localhost:3306"
+                userId="root"
+                password="admin"/>
+
+        <!--用于设置从jdbctype 到 javatype 之间转换的设置-->
+        <!--<javaTypeResolver type=""></javaTypeResolver>-->
+
+        <!--Java模型创建器
+        主要负责：1) key类 2)java类 3)查询类
+        targetPackage:生成的目标存放的文件夹目录
+        targetProject:生成的目标存放的目标项目
+        主：不同的项目必须修改这两个属性的值-->
+        <javaModelGenerator targetPackage="" targetProject="">
+            <!--创建model时，是否创建构造方法-->
+            <property name="contructorBased" value="false"/>
+
+            <!--基于数据库的Schema在targetPackage的基础上再生成一层子Package；最终生成的类再子Package中；默认中为false-->
+            <property name="enableSubPackage" value="false"/>
+
+            <!--是否生成包好setter方法的类-->
+            <property name="immutable" value="true"/>
+
+            <!--设置基类
+            如有该基类，则生成keyClass以及recordClass时会继承该基类
+            Table的rootClass会覆盖该值-->
+            <!--<property name="rootClass" value="全路径名"/>-->
+
+            <!--是否在属性的getter方法中，针对String类型字段调用trim()方法-->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+
+        <sqlMapGenerator targetPackage="" targetProject=""/>
+
+        <table tableName=""></table>
+
+    </context>
+</generatorConfiguration>
