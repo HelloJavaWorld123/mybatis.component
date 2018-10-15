@@ -63,10 +63,30 @@
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
+        <!--设置生成xml文件属性的一些信息
+        -->
+        <sqlMapGenerator targetPackage="" targetProject="">
+            <!--在targetPackage的基础上，根据数据库的Schme在生成一层Package，默认值为false-->
+            <!--<property name="enableSubPackage" value="true"/>-->
+        </sqlMapGenerator>
 
-        <sqlMapGenerator targetPackage="" targetProject=""/>
+        <!--用于生成Interface接口的设置；没有配置该标签，则不会生成Interface接口
+        type:Mybatis3/Mybatis3Simple基础上，生成何种类型的interface：
+            1)ANNOTATEDMAPPER:生成注解形式的interface，不会生成xml文件
+            2)XMLMAPPER:生成interface+xml
+            3)MIXEDMAPPER:混合模式；会生成interface+xml，而且interface接口上可以添加适当的注解
+            主：如果Context中targetRumtime为MyBatis3Simple的话，只支持1 和 2-->
+        <javaClientGenerator type="MIXEDMAPPER" targetPackage="" targetProject="">
 
-        <table tableName=""></table>
+            <!--<property name="enableSubPackage" value="true"/>-->
+        </javaClientGenerator>
+
+        <!--针对表中的具体字段在生成过程中的具体的规则-->
+        <table tableName="" alias="" domainObjectName="">
+            <generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))"/>
+            <columnOverride column="id" property="id"/>
+            <!--<ignoreColumn column="" delimitedColumnName=""/>-->
+        </table>
 
     </context>
 </generatorConfiguration>
