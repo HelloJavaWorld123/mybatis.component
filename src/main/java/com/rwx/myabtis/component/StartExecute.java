@@ -30,7 +30,7 @@ public class StartExecute {
 			//重新生成时 代码是否被覆盖
 			boolean overwrite = true;
 			//加载MyBatis的xml配置文件
-			InputStream configFile = StartExecute.class.getResourceAsStream("generator.xml");
+			InputStream configFile = StartExecute.class.getResourceAsStream("generator/generator.xml");
 
 			ConfigurationParser parser = new ConfigurationParser(warnings);
 			Configuration configuration = parser.parseConfiguration(configFile);

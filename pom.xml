@@ -41,11 +41,11 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
-        <dependency>
+       <!-- <dependency>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator</artifactId>
             <version>${mybatis.generator}</version>
-        </dependency>
+        </dependency>-->
 
 
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
@@ -56,7 +56,7 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
-       <!-- <dependency>
+      <!--  <dependency>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator-maven-plugin</artifactId>
             <version>1.3.7</version>
