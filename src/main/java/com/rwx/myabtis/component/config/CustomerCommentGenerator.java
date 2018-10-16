@@ -14,6 +14,7 @@ import org.mybatis.generator.internal.DefaultCommentGenerator;
  * Des: 自定义生成domin时字段的注释
  **/
 public class CustomerCommentGenerator extends DefaultCommentGenerator {
+
 	/**
 	 * 去除生成xml时的原生注释
 	 */
