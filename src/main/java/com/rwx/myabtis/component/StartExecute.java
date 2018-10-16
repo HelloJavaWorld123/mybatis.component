@@ -8,6 +8,7 @@ import org.mybatis.generator.exception.InvalidConfigurationException;
 import org.mybatis.generator.exception.XMLParserException;
 import org.mybatis.generator.internal.DefaultShellCallback;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
@@ -30,23 +31,21 @@ public class StartExecute {
 			//重新生成时 代码是否被覆盖
 			boolean overwrite = true;
 			//加载MyBatis的xml配置文件
-			InputStream configFile = StartExecute.class.getResourceAsStream("generator/generator.xml");
+			File file = new File(StartExecute.class.getClassLoader().getResource("generator/generator.xml").getFile());
 
 			ConfigurationParser parser = new ConfigurationParser(warnings);
-			Configuration configuration = parser.parseConfiguration(configFile);
+			Configuration configuration = parser.parseConfiguration(file);
 
 			DefaultShellCallback defaultShellCallback = new DefaultShellCallback(overwrite);
 			MyBatisGenerator myBatisGenerator = new MyBatisGenerator(configuration, defaultShellCallback, warnings);
 			myBatisGenerator.generate(null);
 
-			configFile.close();
 		} catch (IOException | SQLException | InterruptedException | InvalidConfigurationException | XMLParserException e) {
 			LOGGER.info("出现的异常信息是{"+e.getMessage()+"}");
-			e.printStackTrace();
 		}
 
 		warnings.forEach(item ->System.out.println());
-		LOGGER.info("生成完毕");
+		System.out.println("生成完毕");
 	}
 
 }

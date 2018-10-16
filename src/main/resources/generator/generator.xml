@@ -23,16 +23,31 @@
         此三种modelType对应三种生成Model的rules:HierarchicalModelRules、ConditionalModelRules、FlatModelRules
         如果想要修改生成规则，则重写rules中的方法
         introspectedColumnImpl: 类全限定名，用于扩展使用（意义待定）-->
-    <context id="mybatis3" targetRuntime="mybatis3" defaultModelType="flat">
+    <context id="mybatis3" targetRuntime="MyBatis3" defaultModelType="flat">
 
         <!--property设置额外的属性-->
         <!--设置生成的java文件的字符集编码-->
         <property name="javaFileEncoding" value="UTF-8"/>
 
+        <!--添加自己的插件或者自带的插件
+        type：填写类的全路径-->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <plugin type="com.rwx.myabtis.component.config.ModelSetSwaggerAnnotationPlugin">
+            <property name="swaggerApiModelPackage" value="io.swagger.annotations.ApiModel"/>
+            <property name="swaggerApiModelPropertyPackage" value="io.swagger.annotations.ApiModelProperty"/>
+        </plugin>
+
+        <commentGenerator type="com.rwx.myabtis.component.config.CustomerCommentGenerator">
+            <!--去掉原生的注释  使用自定义的注释-->
+            <property name="suppressAllComments" value="false"/>
+        </commentGenerator>
+
         <!--数据库连接配置；必填项-->
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql:localhost:3306"
+                connectionURL="jdbc:mysql://localhost:3306/mobile_recharge?useUnicode=true&amp;characterEncoding=utf-8"
                 userId="root"
                 password="admin"/>
 
@@ -44,20 +59,20 @@
         targetPackage:生成的目标存放的文件夹目录
         targetProject:生成的目标存放的目标项目
         主：不同的项目必须修改这两个属性的值-->
-        <javaModelGenerator targetPackage="" targetProject="">
+        <javaModelGenerator targetPackage="com.rwx.test.mybatis.component.demo.entity" targetProject="E:\\Self_project\\demo\src\main\java">
             <!--创建model时，是否创建构造方法-->
-            <property name="contructorBased" value="false"/>
+            <property name="constructorBased" value="true"/>
 
             <!--基于数据库的Schema在targetPackage的基础上再生成一层子Package；最终生成的类再子Package中；默认中为false-->
-            <property name="enableSubPackage" value="false"/>
+            <!--<property name="enableSubPackage" value="true"/>-->
 
             <!--是否生成包好setter方法的类-->
-            <property name="immutable" value="true"/>
+            <!--<property name="immutable" value="true"/>-->
 
             <!--设置基类
             如有该基类，则生成keyClass以及recordClass时会继承该基类
             Table的rootClass会覆盖该值-->
-            <!--<property name="rootClass" value="全路径名"/>-->
+            <property name="rootClass" value="com.rwx.myabtis.component.common.BaseBean"/>
 
             <!--是否在属性的getter方法中，针对String类型字段调用trim()方法-->
             <property name="trimStrings" value="true"/>
@@ -65,9 +80,9 @@
 
         <!--设置生成xml文件属性的一些信息
         -->
-        <sqlMapGenerator targetPackage="" targetProject="">
+        <sqlMapGenerator targetPackage="com.rwx.test.mybatis.component.demo.dao.mapper" targetProject="E:\\Self_project\\demo\src\main\java">
             <!--在targetPackage的基础上，根据数据库的Schme在生成一层Package，默认值为false-->
-            <!--<property name="enableSubPackage" value="true"/>-->
+            <property name="enableSubPackage" value="true"/>
         </sqlMapGenerator>
 
         <!--用于生成Interface接口的设置；没有配置该标签，则不会生成Interface接口
@@ -76,15 +91,20 @@
             2)XMLMAPPER:生成interface+xml
             3)MIXEDMAPPER:混合模式；会生成interface+xml，而且interface接口上可以添加适当的注解
             主：如果Context中targetRumtime为MyBatis3Simple的话，只支持1 和 2-->
-        <javaClientGenerator type="MIXEDMAPPER" targetPackage="" targetProject="">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.rwx.test.mybatis.component.demo.dao" targetProject="E:\\Self_project\\demo\src\main\java">
 
             <!--<property name="enableSubPackage" value="true"/>-->
         </javaClientGenerator>
 
         <!--针对表中的具体字段在生成过程中的具体的规则-->
-        <table tableName="" alias="" domainObjectName="">
+        <table tableName="limit_car_hot_city" alias="LimitCarHotCity" domainObjectName="LimitCarHotCity">
             <generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))"/>
-            <columnOverride column="id" property="id"/>
+            <columnOverride column="city" property="city"/>
+            <columnOverride column="city_name" property="cityName"/>
+            <columnOverride column="create_date" property="createDate"/>
+            <columnOverride column="create_user_id" property="createUserId"/>
+            <columnOverride column="modify_date" property="modifyDate"/>
+            <columnOverride column="modify_user_id" property="modifyUserId"/>
             <!--<ignoreColumn column="" delimitedColumnName=""/>-->
         </table>
 
