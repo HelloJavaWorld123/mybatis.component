@@ -16,6 +16,14 @@ import org.mybatis.generator.internal.DefaultCommentGenerator;
 public class CustomerCommentGenerator extends DefaultCommentGenerator {
 
 	/**
+	 * 修改Mapper接口中的方法的注释
+	 */
+	@Override
+	public void addGeneralMethodComment(Method method, IntrospectedTable introspectedTable) {
+
+	}
+
+	/**
 	 * 去除生成xml时的原生注释
 	 */
 	@Override

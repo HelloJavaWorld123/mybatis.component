@@ -1,11 +1,11 @@
 package com.rwx.myabtis.component.config;
 
-import io.swagger.annotations.ApiModel;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
-import org.mybatis.generator.api.dom.java.*;
-import org.mybatis.generator.api.dom.xml.Document;
+import org.mybatis.generator.api.dom.java.Field;
+import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
+import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.springframework.util.StringUtils;
 
 import java.util.List;

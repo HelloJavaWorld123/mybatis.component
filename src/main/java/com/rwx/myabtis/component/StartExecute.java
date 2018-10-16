@@ -10,7 +10,6 @@ import org.mybatis.generator.internal.DefaultShellCallback;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,7 @@ public class StartExecute {
 			//重新生成时 代码是否被覆盖
 			boolean overwrite = true;
 			//加载MyBatis的xml配置文件
-			File file = new File(StartExecute.class.getClassLoader().getResource("generator/generator.xml").getFile());
+			File file = new File(StartExecute.class.getClassLoader().getResource("common/generator.xml").getFile());
 
 			ConfigurationParser parser = new ConfigurationParser(warnings);
 			Configuration configuration = parser.parseConfiguration(file);

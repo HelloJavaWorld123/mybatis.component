@@ -40,6 +40,7 @@
             <property name="swaggerApiModelPropertyPackage" value="io.swagger.annotations.ApiModelProperty"/>
         </plugin>
 
+
         <commentGenerator type="com.rwx.myabtis.component.config.CustomerCommentGenerator">
             <!--去掉原生的注释  使用自定义的注释-->
             <property name="suppressAllComments" value="false"/>
