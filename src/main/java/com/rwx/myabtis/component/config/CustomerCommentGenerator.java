@@ -4,6 +4,7 @@ import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.Field;
 import org.mybatis.generator.api.dom.java.Method;
+import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.internal.DefaultCommentGenerator;
 
 /**
@@ -13,6 +14,12 @@ import org.mybatis.generator.internal.DefaultCommentGenerator;
  * Des: 自定义生成domin时字段的注释
  **/
 public class CustomerCommentGenerator extends DefaultCommentGenerator {
+	/**
+	 * 去除生成xml时的原生注释
+	 */
+	@Override
+	public void addComment(XmlElement xmlElement) {
+	}
 
 	/**
 	 * get set方法 不需要注释时 无需返回

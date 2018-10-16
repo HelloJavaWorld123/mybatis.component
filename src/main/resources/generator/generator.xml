@@ -33,6 +33,7 @@
         type：填写类的全路径-->
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="com.rwx.myabtis.component.config.MapperInterfaceAnnotationPlugin"/>
 
         <plugin type="com.rwx.myabtis.component.config.ModelSetSwaggerAnnotationPlugin">
             <property name="swaggerApiModelPackage" value="io.swagger.annotations.ApiModel"/>

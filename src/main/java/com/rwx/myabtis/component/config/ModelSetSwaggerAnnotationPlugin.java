@@ -5,6 +5,7 @@ import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 import org.mybatis.generator.api.dom.java.*;
+import org.mybatis.generator.api.dom.xml.Document;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -49,5 +50,4 @@ public class ModelSetSwaggerAnnotationPlugin extends PluginAdapter {
 		field.addAnnotation(propertyAnnotation);
 		return super.modelFieldGenerated(field, topLevelClass, introspectedColumn, introspectedTable, modelClassType);
 	}
-
 }
