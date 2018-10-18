@@ -21,30 +21,45 @@
 
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3306/mobile_recharge?useUnicode=true&amp;characterEncoding=utf-8"
-                userId="root"
-                password="admin"/>
+                connectionURL="jdbc:mysql://192.168.1.199:3306/cxy_chedui?useUnicode=true&amp;characterEncoding=utf-8"
+                userId="cxy"
+                password="123456"/>
 
-        <javaModelGenerator targetPackage="com.rwx.test.mybatis.component.demo.entity" targetProject="E:\\Self_project\\demo\src\main\java">
+        <javaModelGenerator targetPackage="com.cx580.chedui.zichan.model" targetProject="E:\Project\胡椒车队SAAS(JAVA)\branch\dev\src\main\java">
             <property name="constructorBased" value="true"/>
-            <property name="rootClass" value="com.rwx.myabtis.component.common.BaseBean"/>
+            <property name="rootClass" value="com.cx580.chedui.zichan.model.BaseModel"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
-        <sqlMapGenerator targetPackage="com.rwx.test.mybatis.component.demo.dao.mapper" targetProject="E:\\Self_project\\demo\src\main\java">
+        <sqlMapGenerator targetPackage="com.cx580.chedui.zichan.dao.mapper" targetProject="E:\Project\胡椒车队SAAS(JAVA)\branch\dev\src\main\java">
             <property name="enableSubPackage" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.rwx.test.mybatis.component.demo.dao" targetProject="E:\\Self_project\\demo\src\main\java"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.cx580.chedui.zichan.dao" targetProject="E:\Project\胡椒车队SAAS(JAVA)\branch\dev\src\main\java"/>
 
         <!--针对表中的具体字段在生成过程中的具体的规则-->
-        <table tableName="limit_car_hot_city" alias="LimitCarHotCity" domainObjectName="LimitCarHotCity">
-            <generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))"/>
-            <columnOverride column="city" property="city"/>
-            <columnOverride column="city_name" property="cityName"/>
-            <columnOverride column="create_date" property="createDate"/>
-            <columnOverride column="create_user_id" property="createUserId"/>
-            <columnOverride column="modify_date" property="modifyDate"/>
-            <columnOverride column="modify_user_id" property="modifyUserId"/>
+        <table tableName="lz_car_rental_user_info" alias="CarRentalUserInfo" domainObjectName="CarRentalUserInfo">
+            <generatedKey column="user_info_id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))"/>
+            <columnOverride column="user_info_id" property="userInfoId"/>
+            <columnOverride column="user_telephone" property="telephone"/>
+            <columnOverride column="user_name" property="userName"/>
+            <columnOverride column="user_sex" property="userSex"/>
+            <columnOverride column="user_card_number" property="cardNumber"/>
+            <columnOverride column="card_picture_up" property="cardPictureUp"/>
+            <columnOverride column="card_picture_down" property="cardPictureDown"/>
+            <columnOverride column="user_driver_license_picture" property="driverLicensePicture"/>
+            <columnOverride column="user_address" property="userAddress"/>
+            <columnOverride column="user_province" property="province"/>
+            <columnOverride column="user_city" property="city"/>
+            <columnOverride column="region" property="region"/>
+            <columnOverride column="emergency_user_name" property="emergencyUserName"/>
+            <columnOverride column="emergency_user_telephone" property="emergencyUserTelephone"/>
+            <columnOverride column="user_has_talk" property="hasTalk"/>
+            <columnOverride column="remark" property="remark"/>
+            <columnOverride column="create_time" property="createTime"/>
+            <columnOverride column="create_by" property="createBy"/>
+            <columnOverride column="update_time" property="updateTime"/>
+            <columnOverride column="update_by" property="updateBy"/>
+            <columnOverride column="delete_flag" property="deleteFlag"/>
         </table>
 
     </context>
