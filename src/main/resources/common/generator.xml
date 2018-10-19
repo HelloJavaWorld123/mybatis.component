@@ -8,6 +8,7 @@
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
         <plugin type="com.rwx.myabtis.component.config.MapperInterfaceAnnotationPlugin"/>
+        <plugin type="com.rwx.myabtis.component.config.SqlMapperGenertorPlugin"/>
 
         <plugin type="com.rwx.myabtis.component.config.ModelSetSwaggerAnnotationPlugin">
             <property name="swaggerApiModelPackage" value="io.swagger.annotations.ApiModel"/>
@@ -27,7 +28,6 @@
 
         <javaModelGenerator targetPackage="com.cx580.chedui.zichan.model" targetProject="E:\Project\胡椒车队SAAS(JAVA)\branch\dev\src\main\java">
             <property name="constructorBased" value="true"/>
-            <property name="rootClass" value="com.cx580.chedui.zichan.model.BaseModel"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
         <sqlMapGenerator targetPackage="com.cx580.chedui.zichan.dao.mapper" targetProject="E:\Project\胡椒车队SAAS(JAVA)\branch\dev\src\main\java">
@@ -37,8 +37,8 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.cx580.chedui.zichan.dao" targetProject="E:\Project\胡椒车队SAAS(JAVA)\branch\dev\src\main\java"/>
 
         <!--针对表中的具体字段在生成过程中的具体的规则-->
-        <table tableName="lz_car_rental_user_info" alias="CarRentalUserInfo" domainObjectName="CarRentalUserInfo">
-            <generatedKey column="user_info_id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))"/>
+        <table tableName="lz_car_rental_user_info" domainObjectName="CarRentalUserInfo">
+            <generatedKey column="user_info_id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>
             <columnOverride column="user_info_id" property="userInfoId"/>
             <columnOverride column="user_telephone" property="telephone"/>
             <columnOverride column="user_name" property="userName"/>
