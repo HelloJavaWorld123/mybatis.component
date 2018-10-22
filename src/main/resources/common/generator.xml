@@ -215,6 +215,11 @@
             <columnOverride column="car_company" property="carCompany"/>
             <columnOverride column="user_id" property="userId"/>
             <columnOverride column="car_driver_license_picture" property="driverLicensePicture"/>
+            <columnOverride column="goods_source" property="goodsSource"/>
+            <columnOverride column="incoming_time" property="incomingTime"/>
+            <columnOverride column="buy_time" property="buyTime"/>
+            <columnOverride column="engine_source" property="engineSource"/>
+            <columnOverride column="site_num" property="siteNum"/>
             <columnOverride column="car_picture" property="carPicture"/>
             <columnOverride column="car_annual_inspection" property="carAnnualInspection"/>
             <columnOverride column="car_illegal" property="carIllegal"/>
