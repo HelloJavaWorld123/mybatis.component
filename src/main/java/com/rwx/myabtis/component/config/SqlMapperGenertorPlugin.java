@@ -3,9 +3,7 @@ package com.rwx.myabtis.component.config;
 import org.mybatis.generator.api.GeneratedXmlFile;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
-import org.mybatis.generator.api.dom.xml.Attribute;
-import org.mybatis.generator.api.dom.xml.Element;
-import org.mybatis.generator.api.dom.xml.XmlElement;
+import org.mybatis.generator.api.dom.xml.Document;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -25,7 +23,6 @@ public class SqlMapperGenertorPlugin extends PluginAdapter {
 
 	@Override
 	public boolean sqlMapGenerated(GeneratedXmlFile sqlMap, IntrospectedTable introspectedTable) {
-
 		try {
 			Field field = sqlMap.getClass().getDeclaredField("isMergeable");
 			field.setAccessible(true);
