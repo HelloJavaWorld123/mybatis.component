@@ -1,4 +1,4 @@
-package com.rwx.myabtis.component;
+package com.rwx.mybatis.component;
 
 import org.apache.log4j.Logger;
 import org.mybatis.generator.api.MyBatisGenerator;

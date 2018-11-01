@@ -1,4 +1,4 @@
-package com.rwx.myabtis.component.config;
+package com.rwx.mybatis.component.config;
 
 import org.mybatis.generator.api.dom.java.*;
 import org.mybatis.generator.codegen.mybatis3.javamapper.elements.AbstractJavaMapperMethodGenerator;

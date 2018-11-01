@@ -1,4 +1,4 @@
-package com.rwx.myabtis.component.config;
+package com.rwx.mybatis.component.config;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.dom.xml.Attribute;

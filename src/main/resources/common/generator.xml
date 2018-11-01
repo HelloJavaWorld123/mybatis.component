@@ -5,19 +5,17 @@
 <generatorConfiguration>
 
     <context id="mybatis3" targetRuntime="MyBatis3" defaultModelType="flat">
-        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
-        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
-        <plugin type="com.rwx.myabtis.component.config.MapperInterfaceAnnotationPlugin"/>
-        <plugin type="com.rwx.myabtis.component.config.SqlMapperGenertorPlugin"/>
-        <plugin type="com.rwx.myabtis.component.config.CustomerSqlAndInterfacePlugin"/>
+        <plugin type="com.rwx.mybatis.component.config.MapperInterfaceAnnotationPlugin"/>
+        <plugin type="com.rwx.mybatis.component.config.SqlMapperGenertorPlugin"/>
+        <plugin type="com.rwx.mybatis.component.config.CustomerSqlAndInterfacePlugin"/>
 
-        <plugin type="com.rwx.myabtis.component.config.ModelSetSwaggerAnnotationPlugin">
+        <plugin type="com.rwx.mybatis.component.config.ModelSetSwaggerAnnotationPlugin">
             <property name="swaggerApiModelPackage" value="io.swagger.annotations.ApiModel"/>
             <property name="swaggerApiModelPropertyPackage" value="io.swagger.annotations.ApiModelProperty"/>
         </plugin>
 
 
-        <commentGenerator type="com.rwx.myabtis.component.config.CustomerCommentGenerator">
+        <commentGenerator type="com.rwx.mybatis.component.config.CustomerCommentGenerator">
             <property name="suppressAllComments" value="false"/>
         </commentGenerator>
 
@@ -40,6 +38,9 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.cx580.chedui.zichan.dao"
                              targetProject="E:\Project\胡椒车队SAAS(JAVA)\后台系统\branch\dev\src\main\java"/>
 
+        <JavaServiceGenerator>
+
+        </JavaServiceGenerator>
 
         <!--车辆维修记录表-->
         <!--<table tableName="lz_car_user_talk_record" domainObjectName="UserTalkRecord">-->
