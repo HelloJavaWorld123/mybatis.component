@@ -14,6 +14,15 @@
             <property name="swaggerApiModelPropertyPackage" value="io.swagger.annotations.ApiModelProperty"/>
         </plugin>
 
+        <plugin type="com.rwx.mybatis.component.config.JavaServicePlugin">
+            <property name="targetProject" value="E:\Project\胡椒车队SAAS(JAVA)\后台系统\branch\dev\src\main\java"/>
+            <property name="targetPackage" value="com.cx580.chedui.zichan.service"/>
+            <property name="templatePath" value=""/>
+            <property name="basePackage" value="com.cx580.chedui.zichan"/>
+            <property name="mapperSuffix" value="Service"/>
+            <!--<property name="fileName" value=""-->
+        </plugin>
+
 
         <commentGenerator type="com.rwx.mybatis.component.config.CustomerCommentGenerator">
             <property name="suppressAllComments" value="false"/>
@@ -37,10 +46,6 @@
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.cx580.chedui.zichan.dao"
                              targetProject="E:\Project\胡椒车队SAAS(JAVA)\后台系统\branch\dev\src\main\java"/>
-
-        <JavaServiceGenerator>
-
-        </JavaServiceGenerator>
 
         <!--车辆维修记录表-->
         <!--<table tableName="lz_car_user_talk_record" domainObjectName="UserTalkRecord">-->

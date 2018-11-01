@@ -31,7 +31,7 @@ public interface ${modelNameUpperCamel}Service {
     * @param ${modelNameLowerCamel}Id
     * @return
     */
-    ${modelNameUpperCamel} selectById(Long ${modelNameLowerCamel}Id);
+    ${modelNameUpperCamel} selectById(String ${modelNameLowerCamel}Id);
 
     /**
     * 通过输入参数分页查找

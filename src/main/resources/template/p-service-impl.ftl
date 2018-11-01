@@ -32,7 +32,7 @@ public class ${modelNameUpperCamel}ServiceImpl implements ${modelNameUpperCamel}
 
     @Transactional
     @Override
-    public void deleteById(Long ${modelNameLowerCamel}Id) {
+    public void deleteById(String ${modelNameLowerCamel}Id) {
         ${modelNameLowerCamel}Mapper.deleteByPrimaryKey(${modelNameLowerCamel}Id);
     }
 

@@ -58,7 +58,7 @@ public class ${modelNameUpperCamel}Controller {
     * @return
     */
     @PostMapping("/detail")
-    public Result detail(@RequestParam Long id) {
+    public Result detail(@RequestParam String id) {
         ${modelNameUpperCamel} ${modelNameLowerCamel} = ${modelNameLowerCamel}Service.selectById(id);
         return ResultUtil.success(${modelNameLowerCamel});
     }
