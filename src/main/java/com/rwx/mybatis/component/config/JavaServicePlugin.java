@@ -6,9 +6,9 @@ import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 import org.mybatis.generator.api.dom.java.*;
 import org.mybatis.generator.internal.util.StringUtility;
+import org.springframework.util.CollectionUtils;
 
-import java.io.File;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -25,6 +25,8 @@ public class JavaServicePlugin extends PluginAdapter {
     private String targetPackage;
 
     private String basePackage;
+
+    private String controllerTargetPackage;
 
 
     @Override
@@ -57,6 +59,13 @@ public class JavaServicePlugin extends PluginAdapter {
         }else{
             throw new IllegalArgumentException("生成service层时缺少基本的路径");
         }
+
+        String controllerTargetPackage = properties.getProperty("controllerTargetPackage");
+        if(StringUtility.stringHasValue(controllerTargetPackage)){
+            this.controllerTargetPackage = controllerTargetPackage;
+        }else{
+            throw new IllegalArgumentException("生成controller时缺少路径");
+        }
     }
 
     /**
@@ -66,12 +75,64 @@ public class JavaServicePlugin extends PluginAdapter {
      */
     @Override
     public List<GeneratedJavaFile> contextGenerateAdditionalJavaFiles(IntrospectedTable introspectedTable) {
-        GeneratedJavaFile serviceImpl = generateServiceImpl(introspectedTable);
+        List<GeneratedJavaFile> list = new ArrayList<>();
         GeneratedJavaFile service = generateService(introspectedTable);
-        if(serviceImpl != null && service != null){
-            return Arrays.asList(service,serviceImpl);
+        if(null != service){
+            list.add(service);
+            GeneratedJavaFile controller = generateController(introspectedTable,service);
+            if(null != controller){
+                list.add(controller);
+            }
+        }
+
+        GeneratedJavaFile serviceImpl = generateServiceImpl(introspectedTable);
+        if(null != serviceImpl){
+            list.add(serviceImpl);
+        }
+
+        if(!CollectionUtils.isEmpty(list)){
+            return list;
         }
         return super.contextGenerateAdditionalJavaFiles();
+    }
+
+    /**
+     * 生成controller类
+     */
+    private GeneratedJavaFile generateController(IntrospectedTable introspectedTable, GeneratedJavaFile service) {
+        String domainObjectName = introspectedTable.getFullyQualifiedTable().getDomainObjectName();
+        String controllerName = domainObjectName + "Controller";
+        String controllerPath = controllerTargetPackage + "." + controllerName;
+
+//        File file = new File(targetProject+"\\\\"+changePath(controllerPath)+".java");
+//        if(file.exists()){
+//            System.out.println("controller文件已经存在，不在生成");
+//            return null;
+//        }
+
+        TopLevelClass controller = new TopLevelClass(new FullyQualifiedJavaType(controllerPath));
+        CompilationUnit compilationUnit = service.getCompilationUnit();
+        //类名
+        String shortName = compilationUnit.getType().getShortName();
+        //全路径名
+        String fullyQualifiedName = compilationUnit.getType().getFullyQualifiedName();
+        //包路径名
+        String packageName = compilationUnit.getType().getPackageName();
+
+        controller.addImportedType(new FullyQualifiedJavaType("org.springframework.web.bind.annotation.RestController;"));
+        controller.addImportedType(new FullyQualifiedJavaType("org.springframework.beans.factory.annotation.Autowired"));
+        controller.addImportedType(new FullyQualifiedJavaType(fullyQualifiedName));
+        controller.addAnnotation("@RestController");
+        controller.setVisibility(JavaVisibility.PUBLIC);
+
+
+        Field field = new Field();
+        field.setVisibility(JavaVisibility.PRIVATE);
+        field.addAnnotation("@Autowired");
+        field.setType(new FullyQualifiedJavaType(shortName));
+        field.setName(FirstLetterLowerCase(shortName));
+        controller.addField(field);
+        return new GeneratedJavaFile(controller, targetProject);
     }
 
 
@@ -83,11 +144,11 @@ public class JavaServicePlugin extends PluginAdapter {
 
         //生成的servicejava
         String serviceName = targetPackage + "."+introspectedTable.getFullyQualifiedTable().getDomainObjectName() + "Service";
-        File file = new File(targetProject+"\\\\"+changePath(serviceName)+".java");
-        if(file.exists()){
-            System.out.println("service文件已存在不在生成");
-            return null;
-        }
+//        File file = new File(targetProject+"\\\\"+changePath(serviceName)+".java");
+//        if(file.exists()){
+//            System.out.println("service文件已存在不在生成");
+//            return null;
+//        }
         //生成service 文件
         Interface inter = new Interface(new FullyQualifiedJavaType(serviceName));
         //设置文件的可见性
@@ -115,11 +176,11 @@ public class JavaServicePlugin extends PluginAdapter {
         String mapper =domainObjectName+"Mapper" ;
         String mapperInterType = basePackage + ".dao"+"."+mapper;
 
-        File file = new File(targetProject+"\\\\"+changePath(serviceImpl)+".java");
-        if(file.exists()){
-            System.out.println("service层已经存在不在生成");
-            return null;
-        }
+//        File file = new File(targetProject+"\\\\"+changePath(serviceImpl)+".java");
+//        if(file.exists()){
+//            System.out.println("service层已经存在不在生成");
+//            return null;
+//        }
         TopLevelClass aClass = new TopLevelClass(new FullyQualifiedJavaType(serviceImpl));
         aClass.setVisibility(JavaVisibility.PUBLIC);
 
@@ -144,10 +205,6 @@ public class JavaServicePlugin extends PluginAdapter {
 
         return new GeneratedJavaFile(aClass, targetProject);
     }
-
-    //生成Controller类
-
-
 
 
 
@@ -186,5 +243,13 @@ public class JavaServicePlugin extends PluginAdapter {
 
     public void setBasePackage(String basePackage) {
         this.basePackage = basePackage;
+    }
+
+    public String getControllerTargetPackage() {
+        return controllerTargetPackage;
+    }
+
+    public void setControllerTargetPackage(String controllerTargetPackage) {
+        this.controllerTargetPackage = controllerTargetPackage;
     }
 }

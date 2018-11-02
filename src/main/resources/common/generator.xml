@@ -17,6 +17,7 @@
         <plugin type="com.rwx.mybatis.component.config.JavaServicePlugin">
             <property name="targetProject" value="E:\Project\胡椒车队SAAS(JAVA)\后台系统\zichan\branches\dev\src\main\java"/>
             <property name="targetPackage" value="com.cx580.chedui.zichan.service"/>
+            <property name="controllerTargetPackage" value="com.cx580.chedui.zichan.controller"/>
             <property name="templatePath" value=""/>
             <property name="basePackage" value="com.cx580.chedui.zichan"/>
             <property name="mapperSuffix" value="Service"/>
