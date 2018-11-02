@@ -8,6 +8,7 @@ import org.mybatis.generator.api.dom.java.*;
 import org.mybatis.generator.internal.util.StringUtility;
 import org.springframework.util.CollectionUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -16,7 +17,7 @@ import java.util.Properties;
  * Author：RXK
  * Date:2018/11/1 17:29
  * Version: V1.0.0
- * Des:
+ * Des: 自定义生成service层以及controller文件
  **/
 public class JavaServicePlugin extends PluginAdapter {
 
@@ -103,28 +104,21 @@ public class JavaServicePlugin extends PluginAdapter {
         String domainObjectName = introspectedTable.getFullyQualifiedTable().getDomainObjectName();
         String controllerName = domainObjectName + "Controller";
         String controllerPath = controllerTargetPackage + "." + controllerName;
-
-//        File file = new File(targetProject+"\\\\"+changePath(controllerPath)+".java");
-//        if(file.exists()){
-//            System.out.println("controller文件已经存在，不在生成");
-//            return null;
-//        }
-
+        File file = new File(targetProject+"\\\\"+changePath(controllerPath)+".java");
+        if(file.exists()){
+            System.out.println("controller文件已经存在，不在生成");
+            return null;
+        }
         TopLevelClass controller = new TopLevelClass(new FullyQualifiedJavaType(controllerPath));
         CompilationUnit compilationUnit = service.getCompilationUnit();
-        //类名
         String shortName = compilationUnit.getType().getShortName();
-        //全路径名
         String fullyQualifiedName = compilationUnit.getType().getFullyQualifiedName();
-        //包路径名
-        String packageName = compilationUnit.getType().getPackageName();
 
         controller.addImportedType(new FullyQualifiedJavaType("org.springframework.web.bind.annotation.RestController;"));
         controller.addImportedType(new FullyQualifiedJavaType("org.springframework.beans.factory.annotation.Autowired"));
         controller.addImportedType(new FullyQualifiedJavaType(fullyQualifiedName));
         controller.addAnnotation("@RestController");
         controller.setVisibility(JavaVisibility.PUBLIC);
-
 
         Field field = new Field();
         field.setVisibility(JavaVisibility.PRIVATE);
@@ -137,24 +131,14 @@ public class JavaServicePlugin extends PluginAdapter {
 
 
     private GeneratedJavaFile generateService(IntrospectedTable introspectedTable) {
-        //获取实体类的java类型 或者说是 java包全路径
-//        FullyQualifiedJavaType entityType = new FullyQualifiedJavaType(introspectedTable.getBaseRecordType());
-        //再获取主键的java 类型 如果有基类的话 可以作为参数添加进去
-//        FullyQualifiedJavaType primaryKeyType = introspectedTable.getPrimaryKeyColumns().get(0).getFullyQualifiedJavaType();
-
-        //生成的servicejava
         String serviceName = targetPackage + "."+introspectedTable.getFullyQualifiedTable().getDomainObjectName() + "Service";
-//        File file = new File(targetProject+"\\\\"+changePath(serviceName)+".java");
-//        if(file.exists()){
-//            System.out.println("service文件已存在不在生成");
-//            return null;
-//        }
-        //生成service 文件
+        File file = new File(targetProject+"\\\\"+changePath(serviceName)+".java");
+        if(file.exists()){
+            System.out.println("service文件已存在不在生成");
+            return null;
+        }
         Interface inter = new Interface(new FullyQualifiedJavaType(serviceName));
-        //设置文件的可见性
         inter.setVisibility(JavaVisibility.PUBLIC);
-        //导入包
-//        inter.addImportedType(entityType);
         return new GeneratedJavaFile(inter,targetProject);
     }
 
@@ -167,7 +151,6 @@ public class JavaServicePlugin extends PluginAdapter {
 
 
     private GeneratedJavaFile generateServiceImpl(IntrospectedTable introspectedTable) {
-        //获取基本类
         FullyQualifiedJavaType entityType = new FullyQualifiedJavaType(introspectedTable.getBaseRecordType());
         String domainObjectName = introspectedTable.getFullyQualifiedTable().getDomainObjectName();
 
@@ -175,18 +158,15 @@ public class JavaServicePlugin extends PluginAdapter {
         String serviceImpl = targetPackage + "." + "impl." + domainObjectName + "Impl";
         String mapper =domainObjectName+"Mapper" ;
         String mapperInterType = basePackage + ".dao"+"."+mapper;
-
-//        File file = new File(targetProject+"\\\\"+changePath(serviceImpl)+".java");
-//        if(file.exists()){
-//            System.out.println("service层已经存在不在生成");
-//            return null;
-//        }
+        File file = new File(targetProject+"\\\\"+changePath(serviceImpl)+".java");
+        if(file.exists()){
+            System.out.println("service层已经存在不在生成");
+            return null;
+        }
         TopLevelClass aClass = new TopLevelClass(new FullyQualifiedJavaType(serviceImpl));
         aClass.setVisibility(JavaVisibility.PUBLIC);
 
-        //导包 并加注解
         aClass.addImportedType(new FullyQualifiedJavaType(service));
-//        aClass.addImportedType(entityType);
         aClass.addImportedType(new FullyQualifiedJavaType(mapperInterType));
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.stereotype.Service"));
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.transaction.annotation.Transactional"));
@@ -195,7 +175,6 @@ public class JavaServicePlugin extends PluginAdapter {
         aClass.addAnnotation("@Transactional");
         aClass.addSuperInterface(new FullyQualifiedJavaType(service));
 
-        //添加属性
         Field field = new Field();
         field.setVisibility(JavaVisibility.PRIVATE);
         field.addAnnotation("@Autowired");
@@ -205,9 +184,6 @@ public class JavaServicePlugin extends PluginAdapter {
 
         return new GeneratedJavaFile(aClass, targetProject);
     }
-
-
-
 
     private String FirstLetterLowerCase(String mapper) {
         if(StringUtils.isEmpty(mapper)){
