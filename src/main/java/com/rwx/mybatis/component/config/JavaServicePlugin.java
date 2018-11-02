@@ -116,8 +116,10 @@ public class JavaServicePlugin extends PluginAdapter {
 
         controller.addImportedType(new FullyQualifiedJavaType("org.springframework.web.bind.annotation.RestController;"));
         controller.addImportedType(new FullyQualifiedJavaType("org.springframework.beans.factory.annotation.Autowired"));
+        controller.addImportedType(new FullyQualifiedJavaType("org.springframework.web.bind.annotation.RequestMapping"));
         controller.addImportedType(new FullyQualifiedJavaType(fullyQualifiedName));
         controller.addAnnotation("@RestController");
+        controller.addAnnotation("@RequestMapping()");
         controller.setVisibility(JavaVisibility.PUBLIC);
 
         Field field = new Field();
