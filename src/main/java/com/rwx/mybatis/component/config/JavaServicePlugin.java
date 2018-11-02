@@ -66,56 +66,66 @@ public class JavaServicePlugin extends PluginAdapter {
      */
     @Override
     public List<GeneratedJavaFile> contextGenerateAdditionalJavaFiles(IntrospectedTable introspectedTable) {
-        return Arrays.asList(generateServiceImpl(introspectedTable),generateService(introspectedTable));
+        GeneratedJavaFile serviceImpl = generateServiceImpl(introspectedTable);
+        GeneratedJavaFile service = generateService(introspectedTable);
+        if(serviceImpl != null && service != null){
+            return Arrays.asList(service,serviceImpl);
+        }
+        return super.contextGenerateAdditionalJavaFiles();
     }
 
 
     private GeneratedJavaFile generateService(IntrospectedTable introspectedTable) {
         //获取实体类的java类型 或者说是 java包全路径
-        FullyQualifiedJavaType entityType = new FullyQualifiedJavaType(introspectedTable.getBaseRecordType());
+//        FullyQualifiedJavaType entityType = new FullyQualifiedJavaType(introspectedTable.getBaseRecordType());
         //再获取主键的java 类型 如果有基类的话 可以作为参数添加进去
-        FullyQualifiedJavaType primaryKeyType = introspectedTable.getPrimaryKeyColumns().get(0).getFullyQualifiedJavaType();
+//        FullyQualifiedJavaType primaryKeyType = introspectedTable.getPrimaryKeyColumns().get(0).getFullyQualifiedJavaType();
 
         //生成的servicejava
         String serviceName = targetPackage + "."+introspectedTable.getFullyQualifiedTable().getDomainObjectName() + "Service";
-        File file = new File(serviceName);
+        File file = new File(targetProject+"\\\\"+changePath(serviceName)+".java");
         if(file.exists()){
             System.out.println("service文件已存在不在生成");
             return null;
         }
         //生成service 文件
         Interface inter = new Interface(new FullyQualifiedJavaType(serviceName));
-
         //设置文件的可见性
         inter.setVisibility(JavaVisibility.PUBLIC);
         //导入包
-        inter.addImportedType(entityType);
+//        inter.addImportedType(entityType);
         return new GeneratedJavaFile(inter,targetProject);
     }
+
+    private String changePath(String serviceName) {
+        if(StringUtils.isEmpty(serviceName)){
+            return serviceName;
+        }
+        return serviceName.replaceAll("\\.", "\\\\");
+    }
+
 
     private GeneratedJavaFile generateServiceImpl(IntrospectedTable introspectedTable) {
         //获取基本类
         FullyQualifiedJavaType entityType = new FullyQualifiedJavaType(introspectedTable.getBaseRecordType());
         String domainObjectName = introspectedTable.getFullyQualifiedTable().getDomainObjectName();
 
-        String service = targetPackage + "." + entityType + "Service";
-        String serviceImpl = targetPackage + "." + "impl" + domainObjectName + "Impl";
+        String service = targetPackage + "." + entityType.getShortName() + "Service";
+        String serviceImpl = targetPackage + "." + "impl." + domainObjectName + "Impl";
         String mapper =domainObjectName+"Mapper" ;
         String mapperInterType = basePackage + ".dao"+"."+mapper;
 
-
-        File file = new File(serviceImpl);
+        File file = new File(targetProject+"\\\\"+changePath(serviceImpl)+".java");
         if(file.exists()){
             System.out.println("service层已经存在不在生成");
             return null;
         }
-
         TopLevelClass aClass = new TopLevelClass(new FullyQualifiedJavaType(serviceImpl));
         aClass.setVisibility(JavaVisibility.PUBLIC);
 
         //导包 并加注解
         aClass.addImportedType(new FullyQualifiedJavaType(service));
-        aClass.addImportedType(entityType);
+//        aClass.addImportedType(entityType);
         aClass.addImportedType(new FullyQualifiedJavaType(mapperInterType));
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.stereotype.Service"));
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.transaction.annotation.Transactional"));
@@ -134,6 +144,13 @@ public class JavaServicePlugin extends PluginAdapter {
 
         return new GeneratedJavaFile(aClass, targetProject);
     }
+
+    //生成Controller类
+
+
+
+
+
 
     private String FirstLetterLowerCase(String mapper) {
         if(StringUtils.isEmpty(mapper)){

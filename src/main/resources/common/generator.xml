@@ -15,12 +15,11 @@
         </plugin>
 
         <plugin type="com.rwx.mybatis.component.config.JavaServicePlugin">
-            <property name="targetProject" value="E:\Project\胡椒车队SAAS(JAVA)\后台系统\branch\dev\src\main\java"/>
+            <property name="targetProject" value="E:\Project\胡椒车队SAAS(JAVA)\后台系统\zichan\branches\dev\src\main\java"/>
             <property name="targetPackage" value="com.cx580.chedui.zichan.service"/>
             <property name="templatePath" value=""/>
             <property name="basePackage" value="com.cx580.chedui.zichan"/>
             <property name="mapperSuffix" value="Service"/>
-            <!--<property name="fileName" value=""-->
         </plugin>
 
 
@@ -35,17 +34,47 @@
                 password="123456"/>
 
         <javaModelGenerator targetPackage="com.cx580.chedui.zichan.model"
-                            targetProject="E:\Project\胡椒车队SAAS(JAVA)\后台系统\branch\dev\src\main\java">
+                            targetProject="E:\Project\胡椒车队SAAS(JAVA)\后台系统\zichan\branches\dev\src\main\java">
             <property name="constructorBased" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
         <sqlMapGenerator targetPackage="com.cx580.chedui.zichan.dao.mapper"
-                         targetProject="E:\Project\胡椒车队SAAS(JAVA)\后台系统\branch\dev\src\main\java">
+                         targetProject="E:\Project\胡椒车队SAAS(JAVA)\后台系统\zichan\branches\dev\src\main\java">
             <property name="enableSubPackage" value="true"/>
         </sqlMapGenerator>
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.cx580.chedui.zichan.dao"
-                             targetProject="E:\Project\胡椒车队SAAS(JAVA)\后台系统\branch\dev\src\main\java"/>
+                             targetProject="E:\Project\胡椒车队SAAS(JAVA)\后台系统\zichan\branches\dev\src\main\java"/>
+
+
+        <!--合同基本信息-->
+        <table tableName="contract_info" domainObjectName="ContractInfo">
+        <generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>
+        <columnOverride column="id" property="id"/>
+        <columnOverride column="contract_code" property="contractCode"/>
+        <columnOverride column="contract_status" property="contractStatus"/>
+        <columnOverride column="contract_type" property="contractType"/>
+        <columnOverride column="car_info" property="carInfo"/>
+        <columnOverride column="user_info" property="userInfo"/>
+        <columnOverride column="guarantor" property="guarantor"/>
+        <columnOverride column="phone" property="phone"/>
+        <columnOverride column="id_card" property="idCard"/>
+        <columnOverride column="total_amount" property="totalAmount"/>
+        <columnOverride column="begin_time" property="beginTime"/>
+        <columnOverride column="end_time" property="endTime"/>
+        <columnOverride column="payment_time" property="paymentTime"/>
+        <columnOverride column="delivery" property="delivery"/>
+        <columnOverride column="delivery_time" property="deliveryTime"/>
+        <columnOverride column="latest_repayment_time" property="latestRepaymentTime"/>
+        <columnOverride column="remark" property="remark"/>
+        <columnOverride column="create_time" property="createTime"/>
+        <columnOverride column="create_by" property="createBy"/>
+        <columnOverride column="update_time" property="updateTime"/>
+        <columnOverride column="update_by" property="updateBy"/>
+        <columnOverride column="delete_flag" property="deleteFlag"/>
+        </table>
+
+
 
         <!--车辆维修记录表-->
         <!--<table tableName="lz_car_user_talk_record" domainObjectName="UserTalkRecord">-->
@@ -210,37 +239,37 @@
         <!--</table>-->
 
         <!--车辆基本信息表-->
-        <table tableName="lz_car_base_info" domainObjectName="CarBaseInfo">
-            <generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>
-            <columnOverride column="id" property="id"/>
-            <columnOverride column="car_engine_number" property="carEngineNumber"/>
-            <columnOverride column="car_frame_number" property="carFrameNumber"/>
-            <columnOverride column="car_number" property="carNumber"/>
-            <columnOverride column="car_model_type" property="carModelType"/>
-            <columnOverride column="car_body_color" property="carBodyColor"/>
-            <columnOverride column="car_company" property="carCompany"/>
-            <columnOverride column="user_id" property="userId"/>
-            <columnOverride column="car_driver_license_picture" property="driverLicensePicture"/>
-            <columnOverride column="goods_source" property="goodsSource"/>
-            <columnOverride column="incoming_time" property="incomingTime"/>
-            <columnOverride column="buy_time" property="buyTime"/>
-            <columnOverride column="engine_source" property="engineSource"/>
-            <columnOverride column="site_num" property="siteNum"/>
-            <columnOverride column="car_picture" property="carPicture"/>
-            <columnOverride column="car_annual_inspection" property="carAnnualInspection"/>
-            <columnOverride column="car_illegal" property="carIllegal"/>
-            <columnOverride column="car_repaired" property="carRepaired"/>
-            <columnOverride column="car_gps_offline" property="carGPSOffline"/>
-            <columnOverride column="car_insurance" property="carInsurance"/>
-            <columnOverride column="car_online" property="carOnline"/>
-            <columnOverride column="car_is_rental" property="carIsRetal"/>
-            <columnOverride column="remark" property="remark"/>
-            <columnOverride column="delete_flag" property="deleteFlag"/>
-            <columnOverride column="update_by" property="updateBy"/>
-            <columnOverride column="update_time" property="updateTime"/>
-            <columnOverride column="create_by" property="createBy"/>
-            <columnOverride column="create_time" property="createTime"/>
-        </table>
+        <!--<table tableName="lz_car_base_info" domainObjectName="CarBaseInfo">-->
+            <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+            <!--<columnOverride column="id" property="id"/>-->
+            <!--<columnOverride column="car_engine_number" property="carEngineNumber"/>-->
+            <!--<columnOverride column="car_frame_number" property="carFrameNumber"/>-->
+            <!--<columnOverride column="car_number" property="carNumber"/>-->
+            <!--<columnOverride column="car_model_type" property="carModelType"/>-->
+            <!--<columnOverride column="car_body_color" property="carBodyColor"/>-->
+            <!--<columnOverride column="car_company" property="carCompany"/>-->
+            <!--<columnOverride column="user_id" property="userId"/>-->
+            <!--<columnOverride column="car_driver_license_picture" property="driverLicensePicture"/>-->
+            <!--<columnOverride column="goods_source" property="goodsSource"/>-->
+            <!--<columnOverride column="incoming_time" property="incomingTime"/>-->
+            <!--<columnOverride column="buy_time" property="buyTime"/>-->
+            <!--<columnOverride column="engine_source" property="engineSource"/>-->
+            <!--<columnOverride column="site_num" property="siteNum"/>-->
+            <!--<columnOverride column="car_picture" property="carPicture"/>-->
+            <!--<columnOverride column="car_annual_inspection" property="carAnnualInspection"/>-->
+            <!--<columnOverride column="car_illegal" property="carIllegal"/>-->
+            <!--<columnOverride column="car_repaired" property="carRepaired"/>-->
+            <!--<columnOverride column="car_gps_offline" property="carGPSOffline"/>-->
+            <!--<columnOverride column="car_insurance" property="carInsurance"/>-->
+            <!--<columnOverride column="car_online" property="carOnline"/>-->
+            <!--<columnOverride column="car_is_rental" property="carIsRetal"/>-->
+            <!--<columnOverride column="remark" property="remark"/>-->
+            <!--<columnOverride column="delete_flag" property="deleteFlag"/>-->
+            <!--<columnOverride column="update_by" property="updateBy"/>-->
+            <!--<columnOverride column="update_time" property="updateTime"/>-->
+            <!--<columnOverride column="create_by" property="createBy"/>-->
+            <!--<columnOverride column="create_time" property="createTime"/>-->
+        <!--</table>-->
 
 
         <!--年检记录表-->
