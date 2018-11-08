@@ -58,26 +58,27 @@
         <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
         <!--</table>-->
 
-        <!--<table tableName="contract_payment_records" domainObjectName="ContractPaymentRecords">-->
-        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-        <!--<columnOverride column="id" property="id"/>-->
-        <!--<columnOverride column="account_no" property="accountNo"/>-->
-        <!--<columnOverride column="contract_code" property="contractCode"/>-->
-        <!--<columnOverride column="user_info" property="userInfo"/>-->
-        <!--<columnOverride column="payment_type" property="paymentType" javaType="Integer"/>-->
-        <!--<columnOverride column="receivable_money" property="receivableMoney"/>-->
-        <!--<columnOverride column="received_money" property="receivedMoney"/>-->
-        <!--<columnOverride column="needed_pay" property="neededPay"/>-->
-        <!--<columnOverride column="receivable_time" property="receivableTime"/>-->
-        <!--<columnOverride column="car_number" property="carNumber"/>-->
-        <!--<columnOverride column="status" property="status" javaType="Integer"/>-->
-        <!--<columnOverride column="remark" property="remark"/>-->
-        <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
-        <!--<columnOverride column="create_time" property="createTime"/>-->
-        <!--<columnOverride column="create_by" property="createBy"/>-->
-        <!--<columnOverride column="update_time" property="updateTime"/>-->
-        <!--<columnOverride column="update_by" property="updateBy"/>-->
-        <!--</table>-->
+        <table tableName="contract_payment_records" domainObjectName="ContractPaymentRecords">
+            <generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>
+            <columnOverride column="id" property="id"/>
+            <columnOverride column="account_no" property="accountNo"/>
+            <columnOverride column="contract_code" property="contractCode"/>
+            <columnOverride column="payment_type" property="paymentType" javaType="Integer"/>
+            <columnOverride column="receivable_money" property="receivableMoney"/>
+            <columnOverride column="received_money" property="receivedMoney"/>
+            <columnOverride column="needed_pay" property="neededPay"/>
+            <columnOverride column="receivable_time" property="receivableTime"/>
+            <columnOverride column="payment_status" property="paymentStatus" javaType="Integer"/>
+            <columnOverride column="payment_category" property="paymentCategory" javaType="Integer"/>
+            <columnOverride column="total_periods" property="totalPeriods" javaType="Integer"/>
+            <columnOverride column="is_plan" property="isPlan" javaType="Integer"/>
+            <columnOverride column="remark" property="remark"/>
+            <columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>
+            <columnOverride column="create_time" property="createTime"/>
+            <columnOverride column="create_by" property="createBy"/>
+            <columnOverride column="update_time" property="updateTime"/>
+            <columnOverride column="update_by" property="updateBy"/>
+        </table>
 
 
         <!--<table tableName="contract_payment_detail" domainObjectName="ContractPaymentDetail">-->
@@ -147,12 +148,12 @@
 
         <!--合同押金-->
         <!--<table tableName="contract_cash_pledge" domainObjectName="ContractCashPledge">-->
-            <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-            <!--<columnOverride column="id" property="id"/>-->
-            <!--<columnOverride column="contract_code" property="contractCode"/>-->
-            <!--<columnOverride column="money" property="money"/>-->
-            <!--<columnOverride column="pay_time" property="payTime"/>-->
-            <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="id"/>-->
+        <!--<columnOverride column="contract_code" property="contractCode"/>-->
+        <!--<columnOverride column="money" property="money"/>-->
+        <!--<columnOverride column="pay_time" property="payTime"/>-->
+        <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
         <!--</table>-->
 
         <!--租车黑名单记录表-->
@@ -170,37 +171,37 @@
 
 
         <!--合同基本信息-->
-        <table tableName="contract_info" domainObjectName="ContractInfo">
-        <generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>
-        <columnOverride column="id" property="id"/>
-        <columnOverride column="contract_code" property="contractCode"/>
-        <columnOverride column="contract_status" property="contractStatus" javaType="Integer"/>
-        <columnOverride column="contract_type" property="contractType" javaType="Integer"/>
-            <columnOverride column="car_model_type" property="carModelType"/>
-            <columnOverride column="car_number" property="carNumber"/>
-        <columnOverride column="rental_user_name" property="rentalUserName"/>
-        <columnOverride column="rental_user_phone" property="rentalUserPhone"/>
-        <columnOverride column="guarantor" property="guarantor"/>
-        <columnOverride column="phone" property="phone"/>
-        <columnOverride column="id_card" property="idCard"/>
-        <columnOverride column="total_amount" property="totalAmount"/>
-        <columnOverride column="begin_time" property="beginTime"/>
-        <columnOverride column="end_time" property="endTime"/>
-        <columnOverride column="payment_time" property="paymentTime"/>
-        <columnOverride column="delivery" property="delivery" javaType="Integer"/>
-        <columnOverride column="delivery_time" property="deliveryTime"/>
-        <columnOverride column="latest_repayment_time" property="latestRepaymentTime"/>
-        <columnOverride column="blacklist_verification_status" property="blacklistVerificationStatus" javaType="Integer"/>
-        <columnOverride column="discredit_verification_status" property="discreditVerificationStatus" javaType="Integer"/>
-        <columnOverride column="id_card_verification_status" property="idCardVerificationStatus" javaType="Integer"/>
-        <columnOverride column="phone_verification_status" property="phoneVerificationStatus" javaType="Integer"/>
-        <columnOverride column="remark" property="remark"/>
-        <columnOverride column="create_time" property="createTime"/>
-        <columnOverride column="create_by" property="createBy"/>
-        <columnOverride column="update_time" property="updateTime"/>
-        <columnOverride column="update_by" property="updateBy"/>
-        <columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>
-        </table>
+        <!--<table tableName="contract_info" domainObjectName="ContractInfo">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="id"/>-->
+        <!--<columnOverride column="contract_code" property="contractCode"/>-->
+        <!--<columnOverride column="contract_status" property="contractStatus" javaType="Integer"/>-->
+        <!--<columnOverride column="contract_type" property="contractType" javaType="Integer"/>-->
+        <!--<columnOverride column="car_model_type" property="carModelType"/>-->
+        <!--<columnOverride column="car_number" property="carNumber"/>-->
+        <!--<columnOverride column="rental_user_name" property="rentalUserName"/>-->
+        <!--<columnOverride column="rental_user_phone" property="rentalUserPhone"/>-->
+        <!--<columnOverride column="guarantor" property="guarantor"/>-->
+        <!--<columnOverride column="phone" property="phone"/>-->
+        <!--<columnOverride column="id_card" property="idCard"/>-->
+        <!--<columnOverride column="total_amount" property="totalAmount"/>-->
+        <!--<columnOverride column="begin_time" property="beginTime"/>-->
+        <!--<columnOverride column="end_time" property="endTime"/>-->
+        <!--<columnOverride column="payment_time" property="paymentTime"/>-->
+        <!--<columnOverride column="delivery" property="delivery" javaType="Integer"/>-->
+        <!--<columnOverride column="delivery_time" property="deliveryTime"/>-->
+        <!--<columnOverride column="latest_repayment_time" property="latestRepaymentTime"/>-->
+        <!--<columnOverride column="blacklist_verification_status" property="blacklistVerificationStatus" javaType="Integer"/>-->
+        <!--<columnOverride column="discredit_verification_status" property="discreditVerificationStatus" javaType="Integer"/>-->
+        <!--<columnOverride column="id_card_verification_status" property="idCardVerificationStatus" javaType="Integer"/>-->
+        <!--<columnOverride column="phone_verification_status" property="phoneVerificationStatus" javaType="Integer"/>-->
+        <!--<columnOverride column="remark" property="remark"/>-->
+        <!--<columnOverride column="create_time" property="createTime"/>-->
+        <!--<columnOverride column="create_by" property="createBy"/>-->
+        <!--<columnOverride column="update_time" property="updateTime"/>-->
+        <!--<columnOverride column="update_by" property="updateBy"/>-->
+        <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
+        <!--</table>-->
 
 
         <!--车辆维修记录表-->
