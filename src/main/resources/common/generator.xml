@@ -49,111 +49,110 @@
 
 
         <!--<table tableName="contract_repayment_record" domainObjectName="ContractRepaymentRecord">-->
-            <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-            <!--<columnOverride column="id" property="id"/>-->
-            <!--<columnOverride column="contract_code" property="contractCode"/>-->
-            <!--<columnOverride column="money" property="money"/>-->
-            <!--<columnOverride column="payment_type" property="paymentType" javaType="Integer"/>-->
-            <!--<columnOverride column="total_periods" property="totalPeriods"/>-->
-            <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="id"/>-->
+        <!--<columnOverride column="contract_code" property="contractCode"/>-->
+        <!--<columnOverride column="money" property="money"/>-->
+        <!--<columnOverride column="payment_type" property="paymentType" javaType="Integer"/>-->
+        <!--<columnOverride column="total_periods" property="totalPeriods"/>-->
+        <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
         <!--</table>-->
 
         <!--<table tableName="contract_payment_records" domainObjectName="ContractPaymentRecords">-->
-            <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-            <!--<columnOverride column="id" property="id"/>-->
-            <!--<columnOverride column="account_no" property="accountNo"/>-->
-            <!--<columnOverride column="contract_code" property="contractCode"/>-->
-            <!--<columnOverride column="user_info" property="userInfo"/>-->
-            <!--<columnOverride column="payment_type" property="paymentType" javaType="Integer"/>-->
-            <!--<columnOverride column="receivable_money" property="receivableMoney"/>-->
-            <!--<columnOverride column="received_money" property="receivedMoney"/>-->
-            <!--<columnOverride column="needed_pay" property="neededPay"/>-->
-            <!--<columnOverride column="receivable_time" property="receivableTime"/>-->
-            <!--<columnOverride column="car_number" property="carNumber"/>-->
-            <!--<columnOverride column="status" property="status" javaType="Integer"/>-->
-            <!--<columnOverride column="remark" property="remark"/>-->
-            <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
-            <!--<columnOverride column="create_time" property="createTime"/>-->
-            <!--<columnOverride column="create_by" property="createBy"/>-->
-            <!--<columnOverride column="update_time" property="updateTime"/>-->
-            <!--<columnOverride column="update_by" property="updateBy"/>-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="id"/>-->
+        <!--<columnOverride column="account_no" property="accountNo"/>-->
+        <!--<columnOverride column="contract_code" property="contractCode"/>-->
+        <!--<columnOverride column="user_info" property="userInfo"/>-->
+        <!--<columnOverride column="payment_type" property="paymentType" javaType="Integer"/>-->
+        <!--<columnOverride column="receivable_money" property="receivableMoney"/>-->
+        <!--<columnOverride column="received_money" property="receivedMoney"/>-->
+        <!--<columnOverride column="needed_pay" property="neededPay"/>-->
+        <!--<columnOverride column="receivable_time" property="receivableTime"/>-->
+        <!--<columnOverride column="car_number" property="carNumber"/>-->
+        <!--<columnOverride column="status" property="status" javaType="Integer"/>-->
+        <!--<columnOverride column="remark" property="remark"/>-->
+        <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
+        <!--<columnOverride column="create_time" property="createTime"/>-->
+        <!--<columnOverride column="create_by" property="createBy"/>-->
+        <!--<columnOverride column="update_time" property="updateTime"/>-->
+        <!--<columnOverride column="update_by" property="updateBy"/>-->
         <!--</table>-->
 
 
         <!--<table tableName="contract_payment_detail" domainObjectName="ContractPaymentDetail">-->
-            <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-            <!--<columnOverride column="id" property="id"/>-->
-            <!--<columnOverride column="account_no" property="accountNo"/>-->
-            <!--<columnOverride column="relevance_no" property="relevanceNo" javaType="Integer"/>-->
-            <!--<columnOverride column="pay_type" property="payType" javaType="Integer"/>-->
-            <!--<columnOverride column="received_time" property="receivedTime"/>-->
-            <!--<columnOverride column="receipt_document_img" property="receiptDocumentImg"/>-->
-            <!--<columnOverride column="remark" property="remark"/>-->
-            <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
-            <!--<columnOverride column="create_time" property="createTime"/>-->
-            <!--<columnOverride column="create_by" property="createBy"/>-->
-            <!--<columnOverride column="update_time" property="updateTime"/>-->
-            <!--<columnOverride column="update_by" property="updateBy"/>-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="id"/>-->
+        <!--<columnOverride column="account_no" property="accountNo"/>-->
+        <!--<columnOverride column="relevance_no" property="relevanceNo" javaType="Integer"/>-->
+        <!--<columnOverride column="pay_type" property="payType" javaType="Integer"/>-->
+        <!--<columnOverride column="received_time" property="receivedTime"/>-->
+        <!--<columnOverride column="receipt_document_img" property="receiptDocumentImg"/>-->
+        <!--<columnOverride column="remark" property="remark"/>-->
+        <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
+        <!--<columnOverride column="create_time" property="createTime"/>-->
+        <!--<columnOverride column="create_by" property="createBy"/>-->
+        <!--<columnOverride column="update_time" property="updateTime"/>-->
+        <!--<columnOverride column="update_by" property="updateBy"/>-->
         <!--</table>-->
-
 
 
         <!--<table tableName="contract_other_fee" domainObjectName="ContractOtherFee">-->
-            <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-            <!--<columnOverride column="id" property="id"/>-->
-            <!--<columnOverride column="contract_code" property="contractCode"/>-->
-            <!--<columnOverride column="fee_type" property="feeType" javaType="Integer"/>-->
-            <!--<columnOverride column="money" property="money"/>-->
-            <!--<columnOverride column="pay_type" property="payType" javaType="Integer"/>-->
-            <!--<columnOverride column="total_periods" property="totalPeriods"/>-->
-            <!--<columnOverride column="remark" property="remark"/>-->
-            <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="id"/>-->
+        <!--<columnOverride column="contract_code" property="contractCode"/>-->
+        <!--<columnOverride column="fee_type" property="feeType" javaType="Integer"/>-->
+        <!--<columnOverride column="money" property="money"/>-->
+        <!--<columnOverride column="pay_type" property="payType" javaType="Integer"/>-->
+        <!--<columnOverride column="total_periods" property="totalPeriods"/>-->
+        <!--<columnOverride column="remark" property="remark"/>-->
+        <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
         <!--</table>-->
         <!--身份证真假核查记录-->
         <!--<table tableName="contract_id_card_verification" domainObjectName="ContractIdCardVerification">-->
-            <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-            <!--<columnOverride column="id" property="id"/>-->
-            <!--<columnOverride column="contract_code" property="contractCode"/>-->
-            <!--<columnOverride column="check_way" property="checkWay" javaType="Integer"/>-->
-            <!--<columnOverride column="check_time" property="checkTime"/>-->
-            <!--<columnOverride column="check_by" property="checkBy"/>-->
-            <!--<columnOverride column="check_img" property="checkImg"/>-->
-            <!--<columnOverride column="status" property="status" javaType="Integer"/>-->
-            <!--<columnOverride column="remark" property="remark"/>-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="id"/>-->
+        <!--<columnOverride column="contract_code" property="contractCode"/>-->
+        <!--<columnOverride column="check_way" property="checkWay" javaType="Integer"/>-->
+        <!--<columnOverride column="check_time" property="checkTime"/>-->
+        <!--<columnOverride column="check_by" property="checkBy"/>-->
+        <!--<columnOverride column="check_img" property="checkImg"/>-->
+        <!--<columnOverride column="status" property="status" javaType="Integer"/>-->
+        <!--<columnOverride column="remark" property="remark"/>-->
         <!--</table>-->
 
         <!--合同首付款-->
         <!--<table tableName="contract_first_payment" domainObjectName="ContractFirstPayment">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="id"/>-->
+        <!--<columnOverride column="contract_code" property="contractCode"/>-->
+        <!--<columnOverride column="money" property="money"/>-->
+        <!--<columnOverride column="pay_time" property="payTime"/>-->
+        <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
+        <!--</table>-->
+
+
+        <!--公民失信核查记录-->
+        <!--<table tableName="contract_discredit_record" domainObjectName="ContractDiscreditRecord">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="id"/>-->
+        <!--<columnOverride column="contract_code" property="contractCode"/>-->
+        <!--<columnOverride column="check_way" property="checkWay" javaType="Integer"/>-->
+        <!--<columnOverride column="check_time" property="checkTime"/>-->
+        <!--<columnOverride column="check_by" property="checkBy"/>-->
+        <!--<columnOverride column="check_img" property="checkImg"/>-->
+        <!--<columnOverride column="status" property="status" javaType="Integer"/>-->
+        <!--<columnOverride column="remark" property="remark" />-->
+        <!--</table>-->
+
+        <!--合同押金-->
+        <!--<table tableName="contract_cash_pledge" domainObjectName="ContractCashPledge">-->
             <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
             <!--<columnOverride column="id" property="id"/>-->
             <!--<columnOverride column="contract_code" property="contractCode"/>-->
             <!--<columnOverride column="money" property="money"/>-->
             <!--<columnOverride column="pay_time" property="payTime"/>-->
             <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
-        <!--</table>-->
-
-
-        <!--公民失信核查记录-->
-        <!--<table tableName="contract_discredit_record" domainObjectName="ContractDiscreditRecord">-->
-            <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-            <!--<columnOverride column="id" property="id"/>-->
-            <!--<columnOverride column="contract_code" property="contractCode"/>-->
-            <!--<columnOverride column="check_way" property="checkWay" javaType="Integer"/>-->
-            <!--<columnOverride column="check_time" property="checkTime"/>-->
-            <!--<columnOverride column="check_by" property="checkBy"/>-->
-            <!--<columnOverride column="check_img" property="checkImg"/>-->
-            <!--<columnOverride column="status" property="status" javaType="Integer"/>-->
-            <!--<columnOverride column="remark" property="remark" />-->
-        <!--</table>-->
-
-        <!--合同押金-->
-        <!--<table tableName="contract_cash_pledge" domainObjectName="ContractCashPledge">-->
-        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-        <!--<columnOverride column="id" property="id"/>-->
-        <!--<columnOverride column="contract_code" property="contractCode"/>-->
-        <!--<columnOverride column="money" property="checkWay"/>-->
-        <!--<columnOverride column="pay_time" property="checkTime"/>-->
-        <!--<columnOverride column="delete_flag" property="status" javaType="Integer"/>-->
         <!--</table>-->
 
         <!--租车黑名单记录表-->
@@ -177,8 +176,8 @@
         <columnOverride column="contract_code" property="contractCode"/>
         <columnOverride column="contract_status" property="contractStatus" javaType="Integer"/>
         <columnOverride column="contract_type" property="contractType" javaType="Integer"/>
-        <columnOverride column="car_number" property="carNumber"/>
-        <columnOverride column="car_model_type" property="carModelType"/>
+            <columnOverride column="car_model_type" property="carModelType"/>
+            <columnOverride column="car_number" property="carNumber"/>
         <columnOverride column="rental_user_name" property="rentalUserName"/>
         <columnOverride column="rental_user_phone" property="rentalUserPhone"/>
         <columnOverride column="guarantor" property="guarantor"/>
