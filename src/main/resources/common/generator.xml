@@ -14,6 +14,7 @@
             <property name="swaggerApiModelPropertyPackage" value="io.swagger.annotations.ApiModelProperty"/>
         </plugin>
 
+        <!--自定义生成Service Controller层文件-->
         <plugin type="com.rwx.mybatis.component.config.JavaServicePlugin">
             <property name="targetProject" value="E:\Project\胡椒车队SAAS(JAVA)\后台系统\zichan\branches\dev\src\main\java"/>
             <property name="targetPackage" value="com.cx580.chedui.zichan.service"/>
@@ -21,6 +22,10 @@
             <property name="templatePath" value=""/>
             <property name="basePackage" value="com.cx580.chedui.zichan"/>
             <property name="mapperSuffix" value="Service"/>
+            <!--创建文件时的作者-->
+            <property name="author" value="RXK"/>
+            <!--以及Controller层API基础接口 有的话在生成Controller是会添加上 否则不会有-->
+            <property name="apiBaseInfo" value="/api/test/info"/>
         </plugin>
 
 
@@ -30,9 +35,9 @@
 
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://192.168.1.199:3306/cxy_chedui?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"
-                userId="cxy"
-                password="123456"/>
+                connectionURL="jdbc:mysql://localhost:3306/cxy_chedui?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"
+                userId="root"
+                password="admin"/>
 
         <javaModelGenerator targetPackage="com.cx580.chedui.zichan.model"
                             targetProject="E:\Project\胡椒车队SAAS(JAVA)\后台系统\zichan\branches\dev\src\main\java">
@@ -48,37 +53,37 @@
                              targetProject="E:\Project\胡椒车队SAAS(JAVA)\后台系统\zichan\branches\dev\src\main\java"/>
 
 
-        <!--<table tableName="contract_repayment_record" domainObjectName="ContractRepaymentRecord">-->
-        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-        <!--<columnOverride column="id" property="id"/>-->
-        <!--<columnOverride column="contract_code" property="contractCode"/>-->
-        <!--<columnOverride column="money" property="money"/>-->
-        <!--<columnOverride column="payment_type" property="paymentType" javaType="Integer"/>-->
-        <!--<columnOverride column="total_periods" property="totalPeriods"/>-->
-        <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
-        <!--</table>-->
-
-        <table tableName="contract_payment_records" domainObjectName="ContractPaymentRecords">
+        <table tableName="test" domainObjectName="Test">
             <generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>
             <columnOverride column="id" property="id"/>
-            <columnOverride column="account_no" property="accountNo"/>
             <columnOverride column="contract_code" property="contractCode"/>
+            <columnOverride column="money" property="money"/>
             <columnOverride column="payment_type" property="paymentType" javaType="Integer"/>
-            <columnOverride column="receivable_money" property="receivableMoney"/>
-            <columnOverride column="received_money" property="receivedMoney"/>
-            <columnOverride column="needed_pay" property="neededPay"/>
-            <columnOverride column="receivable_time" property="receivableTime"/>
-            <columnOverride column="payment_status" property="paymentStatus" javaType="Integer"/>
-            <columnOverride column="payment_category" property="paymentCategory" javaType="Integer"/>
-            <columnOverride column="total_periods" property="totalPeriods" javaType="Integer"/>
-            <columnOverride column="is_plan" property="isPlan" javaType="Integer"/>
-            <columnOverride column="remark" property="remark"/>
+            <columnOverride column="total_periods" property="totalPeriods"/>
             <columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>
-            <columnOverride column="create_time" property="createTime"/>
-            <columnOverride column="create_by" property="createBy"/>
-            <columnOverride column="update_time" property="updateTime"/>
-            <columnOverride column="update_by" property="updateBy"/>
         </table>
+
+        <!--<table tableName="contract_payment_records" domainObjectName="ContractPaymentRecords">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="id"/>-->
+        <!--<columnOverride column="account_no" property="accountNo"/>-->
+        <!--<columnOverride column="contract_code" property="contractCode"/>-->
+        <!--<columnOverride column="payment_type" property="paymentType" javaType="Integer"/>-->
+        <!--<columnOverride column="receivable_money" property="receivableMoney"/>-->
+        <!--<columnOverride column="received_money" property="receivedMoney"/>-->
+        <!--<columnOverride column="needed_pay" property="neededPay"/>-->
+        <!--<columnOverride column="receivable_time" property="receivableTime"/>-->
+        <!--<columnOverride column="payment_status" property="paymentStatus" javaType="Integer"/>-->
+        <!--<columnOverride column="payment_category" property="paymentCategory" javaType="Integer"/>-->
+        <!--<columnOverride column="total_periods" property="totalPeriods" javaType="Integer"/>-->
+        <!--<columnOverride column="is_plan" property="isPlan" javaType="Integer"/>-->
+        <!--<columnOverride column="remark" property="remark"/>-->
+        <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
+        <!--<columnOverride column="create_time" property="createTime"/>-->
+        <!--<columnOverride column="create_by" property="createBy"/>-->
+        <!--<columnOverride column="update_time" property="updateTime"/>-->
+        <!--<columnOverride column="update_by" property="updateBy"/>-->
+        <!--</table>-->
 
 
         <!--<table tableName="contract_payment_detail" domainObjectName="ContractPaymentDetail">-->

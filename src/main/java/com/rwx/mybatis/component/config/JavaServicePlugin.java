@@ -1,5 +1,6 @@
 package com.rwx.mybatis.component.config;
 
+import com.rwx.mybatis.component.util.GeneratedFileDocUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.mybatis.generator.api.GeneratedJavaFile;
 import org.mybatis.generator.api.IntrospectedTable;
@@ -26,6 +27,12 @@ public class JavaServicePlugin extends PluginAdapter {
     private String targetPackage;
 
     private String basePackage;
+
+    //生成文件时的作者
+    private String author;
+
+    //生成Controller时的基础接口
+    private String apiBaseInfo;
 
     private String controllerTargetPackage;
 
@@ -66,6 +73,16 @@ public class JavaServicePlugin extends PluginAdapter {
             this.controllerTargetPackage = controllerTargetPackage;
         }else{
             throw new IllegalArgumentException("生成controller时缺少路径");
+        }
+
+        String author = properties.getProperty("author");
+        if(StringUtils.isNotEmpty(author)){
+            this.author = author;
+        }
+
+        String apiBaseInfo = properties.getProperty("apiBaseInfo");
+        if(StringUtils.isNotEmpty(apiBaseInfo)){
+            this.apiBaseInfo = apiBaseInfo;
         }
     }
 
@@ -119,9 +136,8 @@ public class JavaServicePlugin extends PluginAdapter {
         controller.addImportedType(new FullyQualifiedJavaType("org.springframework.web.bind.annotation.RequestMapping"));
         controller.addImportedType(new FullyQualifiedJavaType(fullyQualifiedName));
         controller.addAnnotation("@RestController");
-        controller.addAnnotation("@RequestMapping()");
+        controller.addAnnotation("@RequestMapping("+"\""+apiBaseInfo+"\""+")");
         controller.setVisibility(JavaVisibility.PUBLIC);
-
         Field field = new Field();
         field.setVisibility(JavaVisibility.PRIVATE);
         field.addAnnotation("@Autowired");
@@ -141,7 +157,7 @@ public class JavaServicePlugin extends PluginAdapter {
         }
         Interface inter = new Interface(new FullyQualifiedJavaType(serviceName));
         inter.setVisibility(JavaVisibility.PUBLIC);
-        return new GeneratedJavaFile(inter,targetProject);
+        return new GeneratedJavaFile(inter, targetProject);
     }
 
     private String changePath(String serviceName) {
@@ -173,6 +189,7 @@ public class JavaServicePlugin extends PluginAdapter {
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.stereotype.Service"));
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.transaction.annotation.Transactional"));
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.beans.factory.annotation.Autowired"));
+        aClass.addFileCommentLine(GeneratedFileDocUtils.setJavaFileDoc(author));
         aClass.addAnnotation("@Service");
         aClass.addAnnotation("@Transactional");
         aClass.addSuperInterface(new FullyQualifiedJavaType(service));
@@ -229,5 +246,21 @@ public class JavaServicePlugin extends PluginAdapter {
 
     public void setControllerTargetPackage(String controllerTargetPackage) {
         this.controllerTargetPackage = controllerTargetPackage;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getApiBaseInfo() {
+        return apiBaseInfo;
+    }
+
+    public void setApiBaseInfo(String apiBaseInfo) {
+        this.apiBaseInfo = apiBaseInfo;
     }
 }
