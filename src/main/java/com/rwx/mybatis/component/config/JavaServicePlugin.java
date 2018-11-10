@@ -173,12 +173,12 @@ public class JavaServicePlugin extends PluginAdapter {
         String domainObjectName = introspectedTable.getFullyQualifiedTable().getDomainObjectName();
 
         String service = targetPackage + "." + entityType.getShortName() + "Service";
-        String serviceImpl = targetPackage + "." + "impl." + domainObjectName + "Impl";
+        String serviceImpl = targetPackage + "." + "impl." + domainObjectName + "ServiceImpl";
         String mapper =domainObjectName+"Mapper" ;
         String mapperInterType = basePackage + ".dao"+"."+mapper;
         File file = new File(targetProject+"\\\\"+changePath(serviceImpl)+".java");
         if(file.exists()){
-            System.out.println("service层已经存在不在生成");
+            System.out.println("serviceImpl层已经存在不在生成");
             return null;
         }
         TopLevelClass aClass = new TopLevelClass(new FullyQualifiedJavaType(serviceImpl));
