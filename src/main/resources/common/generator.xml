@@ -56,69 +56,69 @@
         <!--=======================================订单信息表单=================================================-->
 
 
-        <table tableName="auth_user_info" domainObjectName="AuthUserInfo">
-            <generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>
-            <columnOverride column="id" property="Id"/>
-            <columnOverride column="user_type" property="userType" javaType="Integer"/>
-            <columnOverride column="user_name" property="userName"/>
-            <columnOverride column="user_phone" property="userPhone"/>
-            <columnOverride column="password" property="password"/>
-            <columnOverride column="user_status" property="userStatus" javaType="Integer"/>
-            <columnOverride column="role_type" property="roleType" javaType="Integer"/>
-            <columnOverride column="create_time" property="createTime"/>
-            <columnOverride column="create_by" property="createBy"/>
-            <columnOverride column="update_time" property="updateTime"/>
-            <columnOverride column="update_by" property="updateBy"/>
-        </table>
+        <!--<table tableName="auth_user_info" domainObjectName="AuthUserInfo">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="Id"/>-->
+        <!--<columnOverride column="user_type" property="userType" javaType="Integer"/>-->
+        <!--<columnOverride column="user_name" property="userName"/>-->
+        <!--<columnOverride column="user_phone" property="userPhone"/>-->
+        <!--<columnOverride column="password" property="password"/>-->
+        <!--<columnOverride column="user_status" property="userStatus" javaType="Integer"/>-->
+        <!--<columnOverride column="role_type" property="roleType" javaType="Integer"/>-->
+        <!--<columnOverride column="create_time" property="createTime"/>-->
+        <!--<columnOverride column="create_by" property="createBy"/>-->
+        <!--<columnOverride column="update_time" property="updateTime"/>-->
+        <!--<columnOverride column="update_by" property="updateBy"/>-->
+        <!--</table>-->
 
         <!--<table tableName="account_bill_info" domainObjectName="AccountBillInfo">-->
-            <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-            <!--<columnOverride column="id" property="Id"/>-->
-            <!--<columnOverride column="order_id" property="orderId"/>-->
-            <!--<columnOverride column="already_back_number" property="alreadyBackNumber"/>-->
-            <!--<columnOverride column="illegal_number" property="illegalNumber"/>-->
-            <!--<columnOverride column="repaired_number" property="repairedNumber"/>-->
-            <!--<columnOverride column="rental_money" property="rentalMoney"/>-->
-            <!--<columnOverride column="cash_pledge" property="cashPledge"/>-->
-            <!--<columnOverride column="repaired_money" property="repairedMoney"/>-->
-            <!--<columnOverride column="other_items_info" property="otherItemInfo"/>-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="Id"/>-->
+        <!--<columnOverride column="order_id" property="orderId"/>-->
+        <!--<columnOverride column="already_back_number" property="alreadyBackNumber"/>-->
+        <!--<columnOverride column="illegal_number" property="illegalNumber"/>-->
+        <!--<columnOverride column="repaired_number" property="repairedNumber"/>-->
+        <!--<columnOverride column="rental_money" property="rentalMoney"/>-->
+        <!--<columnOverride column="cash_pledge" property="cashPledge"/>-->
+        <!--<columnOverride column="repaired_money" property="repairedMoney"/>-->
+        <!--<columnOverride column="other_items_info" property="otherItemInfo"/>-->
         <!--</table>-->
 
         <!--订单车辆关联表-->
         <!--<table tableName="order_car_info" domainObjectName="OrderCarInfo">-->
-            <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-            <!--<columnOverride column="id" property="Id"/>-->
-            <!--<columnOverride column="car_base_info_id" property="carBaseInfoId"/>-->
-            <!--<columnOverride column="order_id" property="orderId"/>-->
-            <!--<columnOverride column="get_car_picture" property="getCarPicture"/>-->
-            <!--<columnOverride column="back_car_picture" property="backCarPicture"/>-->
+        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="id" property="Id"/>-->
+        <!--<columnOverride column="car_base_info_id" property="carBaseInfoId"/>-->
+        <!--<columnOverride column="order_id" property="orderId"/>-->
+        <!--<columnOverride column="get_car_picture" property="getCarPicture"/>-->
+        <!--<columnOverride column="back_car_picture" property="backCarPicture"/>-->
         <!--</table>-->
 
 
         <!--订单信息表-->
         <!--<table tableName="order_info" domainObjectName="OrderInfo">-->
-            <!--<generatedKey column="order_id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-            <!--<columnOverride column="order_id" property="orderId"/>-->
-            <!--<columnOverride column="order_status" property="orderStatus" javaType="Integer"/>-->
-            <!--<columnOverride column="order_code" property="orderCode"/>-->
-            <!--<columnOverride column="contract_code" property="contractCode"/>-->
-            <!--<columnOverride column="contract_picture" property="contractPicture"/>-->
-            <!--<columnOverride column="rental_user_id" property="rentalUserId"/>-->
-            <!--<columnOverride column="tenant_user_id" property="tenantUserId"/>-->
-            <!--<columnOverride column="rental_number" property="rentalNumber"/>-->
-            <!--<columnOverride column="start_time" property="startTime"/>-->
-            <!--<columnOverride column="end_time" property="endTime"/>-->
-            <!--<columnOverride column="order_amount" property="orderAmount"/>-->
-            <!--<columnOverride column="order_cash_pledge" property="orderCashPledge"/>-->
-            <!--<columnOverride column="other_picture_info" property="otherPictureInfo"/>-->
-            <!--<columnOverride column="get_car_sheet" property="getCarSheet"/>-->
-            <!--<columnOverride column="back_car_sheet" property="backCarSheet"/>-->
-            <!--<columnOverride column="remark" property="remark"/>-->
-            <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
-            <!--<columnOverride column="create_time" property="createTime"/>-->
-            <!--<columnOverride column="create_by" property="createBy"/>-->
-            <!--<columnOverride column="update_time" property="updateTime"/>-->
-            <!--<columnOverride column="update_by" property="updateBy"/>-->
+        <!--<generatedKey column="order_id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
+        <!--<columnOverride column="order_id" property="orderId"/>-->
+        <!--<columnOverride column="order_status" property="orderStatus" javaType="Integer"/>-->
+        <!--<columnOverride column="order_code" property="orderCode"/>-->
+        <!--<columnOverride column="contract_code" property="contractCode"/>-->
+        <!--<columnOverride column="contract_picture" property="contractPicture"/>-->
+        <!--<columnOverride column="rental_user_id" property="rentalUserId"/>-->
+        <!--<columnOverride column="tenant_user_id" property="tenantUserId"/>-->
+        <!--<columnOverride column="rental_number" property="rentalNumber"/>-->
+        <!--<columnOverride column="start_time" property="startTime"/>-->
+        <!--<columnOverride column="end_time" property="endTime"/>-->
+        <!--<columnOverride column="order_amount" property="orderAmount"/>-->
+        <!--<columnOverride column="order_cash_pledge" property="orderCashPledge"/>-->
+        <!--<columnOverride column="other_picture_info" property="otherPictureInfo"/>-->
+        <!--<columnOverride column="get_car_sheet" property="getCarSheet"/>-->
+        <!--<columnOverride column="back_car_sheet" property="backCarSheet"/>-->
+        <!--<columnOverride column="remark" property="remark"/>-->
+        <!--<columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
+        <!--<columnOverride column="create_time" property="createTime"/>-->
+        <!--<columnOverride column="create_by" property="createBy"/>-->
+        <!--<columnOverride column="update_time" property="updateTime"/>-->
+        <!--<columnOverride column="update_by" property="updateBy"/>-->
         <!--</table>-->
         <!--======================================车辆管理表单==================================================-->
         <!--<table tableName="test" domainObjectName="Test">-->
@@ -440,39 +440,41 @@
         <!--</table>-->
 
         <!--车辆基本信息表-->
-        <!--<table tableName="lz_car_base_info" domainObjectName="CarBaseInfo">-->
-        <!--<generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>-->
-        <!--<columnOverride column="id" property="id"/>-->
-        <!--<columnOverride column="car_engine_number" property="carEngineNumber"/>-->
-        <!--<columnOverride column="car_frame_number" property="carFrameNumber"/>-->
-        <!--<columnOverride column="car_number" property="carNumber"/>-->
-        <!--<columnOverride column="car_model_type" property="carModelType"/>-->
-        <!--<columnOverride column="car_body_color" property="carBodyColor"/>-->
-        <!--<columnOverride column="car_company" property="carCompany"/>-->
-        <!--<columnOverride column="user_id" property="userId"/>-->
-        <!--<columnOverride column="car_driver_license_picture" property="driverLicensePicture"/>-->
-        <!--<columnOverride column="goods_source" property="goodsSource"/>-->
-        <!--<columnOverride column="incoming_time" property="incomingTime"/>-->
-        <!--<columnOverride column="buy_time" property="buyTime"/>-->
-        <!--<columnOverride column="engine_source" property="engineSource"/>-->
-        <!--<columnOverride column="site_num" property="siteNum"/>-->
-        <!--<columnOverride column="car_picture" property="carPicture"/>-->
-        <!--<columnOverride column="car_out_of_danger" property="carOutOfDanger" javaType="Integer"/>-->
-        <!--<columnOverride column="car_out_of_date_rental" property="carOutOfDateRental" javaType="Integer"/>-->
-        <!--<columnOverride column="car_annual_inspection" property="carAnnualInspection"/>-->
-        <!--<columnOverride column="car_illegal" property="carIllegal"/>-->
-        <!--<columnOverride column="car_repaired" property="carRepaired"/>-->
-        <!--<columnOverride column="car_gps_offline" property="carGPSOffline"/>-->
-        <!--<columnOverride column="car_insurance" property="carInsurance"/>-->
-        <!--<columnOverride column="car_online" property="carOnline"/>-->
-        <!--<columnOverride column="car_is_rental" property="carIsRental"/>-->
-        <!--<columnOverride column="remark" property="remark"/>-->
-        <!--<columnOverride column="delete_flag" property="deleteFlag"/>-->
-        <!--<columnOverride column="update_by" property="updateBy"/>-->
-        <!--<columnOverride column="update_time" property="updateTime"/>-->
-        <!--<columnOverride column="create_by" property="createBy"/>-->
-        <!--<columnOverride column="create_time" property="createTime"/>-->
-        <!--</table>-->
+        <table tableName="lz_car_base_info" domainObjectName="CarBaseInfo">
+            <generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>
+            <columnOverride column="id" property="id"/>
+            <columnOverride column="car_engine_number" property="carEngineNumber"/>
+            <columnOverride column="car_frame_number" property="carFrameNumber"/>
+            <columnOverride column="car_number" property="carNumber"/>
+            <columnOverride column="car_model_type" property="carModelType"/>
+            <columnOverride column="car_body_color" property="carBodyColor"/>
+            <columnOverride column="car_company" property="carCompany"/>
+            <columnOverride column="user_id" property="userId"/>
+            <columnOverride column="car_driver_license_picture" property="driverLicensePicture"/>
+            <columnOverride column="goods_source" property="goodsSource"/>
+            <columnOverride column="incoming_time" property="incomingTime"/>
+            <columnOverride column="buy_time" property="buyTime"/>
+            <columnOverride column="engine_source" property="engineSource"/>
+            <columnOverride column="site_num" property="siteNum"/>
+            <columnOverride column="car_picture" property="carPicture"/>
+            <columnOverride column="rental_type" property="rentalType" javaType="Integer"/>
+            <columnOverride column="car_out_of_danger" property="carOutOfDanger" javaType="Integer"/>
+            <columnOverride column="car_out_of_date_rental" property="carOutOfDateRental" javaType="Integer"/>
+            <columnOverride column="car_annual_inspection" property="carAnnualInspection"/>
+            <columnOverride column="car_illegal" property="carIllegal"/>
+            <columnOverride column="car_repaired" property="carRepaired"/>
+            <columnOverride column="car_gps_offline" property="carGPSOffline"/>
+            <columnOverride column="car_insurance" property="carInsurance"/>
+            <columnOverride column="car_online" property="carOnline"/>
+            <columnOverride column="car_is_rental" property="carIsRental"/>
+            <columnOverride column="gps_no" property="gpsNo"/>
+            <columnOverride column="remark" property="remark"/>
+            <columnOverride column="delete_flag" property="deleteFlag"/>
+            <columnOverride column="update_by" property="updateBy"/>
+            <columnOverride column="update_time" property="updateTime"/>
+            <columnOverride column="create_by" property="createBy"/>
+            <columnOverride column="create_time" property="createTime"/>
+        </table>
 
 
         <!--年检记录表-->
