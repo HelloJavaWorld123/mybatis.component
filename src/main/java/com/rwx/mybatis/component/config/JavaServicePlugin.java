@@ -193,7 +193,7 @@ public class JavaServicePlugin extends PluginAdapter {
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.transaction.annotation.Transactional"));
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.beans.factory.annotation.Autowired"));
         aClass.addAnnotation("@Service");
-        aClass.addAnnotation("@Transactional");
+        aClass.addAnnotation("@Transactional(rollbackFor = Exception.class)");
         aClass.addSuperInterface(new FullyQualifiedJavaType(service));
 
         Field field = new Field();
