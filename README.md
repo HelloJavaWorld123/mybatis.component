@@ -1,6 +1,10 @@
 # mybatis.component
 mybatis自动生成DAO层、service层的独立项目
 
+## 分支
++ master 存放成熟的代码
++ dev 存放目前的项目代码的分支
+
 ## 目录结构
     └─main
         ├─java
@@ -23,3 +27,6 @@ mybatis自动生成DAO层、service层的独立项目
             │  
             └─common
                     generator.xml(基本配置)
+
+
+*切换到dev分支*
