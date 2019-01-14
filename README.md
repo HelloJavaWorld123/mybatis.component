@@ -2,8 +2,6 @@
 mybatis自动生成DAO层、service层的独立项目
 
 ## 目录结构
-.         
-└─src
     └─main
         ├─java
         │  └─com
