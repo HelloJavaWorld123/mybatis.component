@@ -39,11 +39,6 @@ public class PageInterceptor implements Interceptor {
 
     private static ReflectorFactory DEFAULT_REFLECTOR_FACTORY = new DefaultReflectorFactory();
 
-    //执行统计sql时 通过反射(MetaObject)获取到的ParameterHandler 然后再
-    private static String DELEGATE_PARAMETER_HANDLER = "delegate.parameterHandler";
-
-    private static String DELEGATE_BOUNDSQL_SQL = "delegate.boundSql.sql";
-
     private static final Logger LOGGER = LoggerFactory.getLogger(PageInterceptor.class);
 
     /**
@@ -88,7 +83,7 @@ public class PageInterceptor implements Interceptor {
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(countSql);
-            ParameterHandler parameterHandler = (ParameterHandler) metaObject.getValue(DELEGATE_PARAMETER_HANDLER);
+            ParameterHandler parameterHandler = (ParameterHandler) metaObject.getValue("delegate.parameterHandler");
 
             parameterHandler.setParameters(preparedStatement);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -105,7 +100,7 @@ public class PageInterceptor implements Interceptor {
     private void reBuildSQL(MetaObject metaObject, BoundSql boundSql, PageDTO dto) {
         String sql = boundSql.getSql();
         String pageSql = pageSQL(sql, dto);
-        metaObject.setValue(DELEGATE_BOUNDSQL_SQL,pageSql);
+        metaObject.setValue("delegate.boundSql.sql",pageSql);
     }
 
     //重新构建sql
