@@ -1,6 +1,5 @@
 package com.rwx.myabtis.component.config.interceptor;
 
-import com.rwx.myabtis.component.common.MyReflectUtils;
 import com.rwx.myabtis.component.common.PageDTO;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
