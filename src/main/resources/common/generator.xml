@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <context id="mybatis3" targetRuntime="MyBatis3">
+
         <plugin type="com.rwx.mybatis.component.config.MapperInterfaceAnnotationPlugin"/>
         <plugin type="com.rwx.mybatis.component.config.SqlMapperGenertorPlugin"/>
 <!--        <plugin type="com.rwx.mybatis.component.config.CustomerSqlAndInterfacePlugin"/>-->
@@ -34,13 +35,13 @@
 
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://39.104.140.215:13306/kilometres?useUnicode=true&amp;characterEncoding=utf-8"
+                connectionURL="jdbc:mysql://39.104.140.215:13306/kilometres?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"
                 userId="lifehub"
                 password="hub201811"/>
 
+        <javaTypeResolver type="com.rwx.mybatis.component.config.CustomerJavaTypeResolver"/>
         <javaModelGenerator targetPackage="com.frame.web.model.dao"
                             targetProject="E:\project\Frame\Java\web\src\main\java">
-            <property name="enableSubPackages" value="true" />
             <property name="rootClass" value="com.rwx.mybatis.component.base.BaseEntity"/>
         </javaModelGenerator>
         <sqlMapGenerator targetPackage="com.frame.web.mapper.xml"
@@ -50,16 +51,9 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.frame.web.mapper"
                              targetProject="E:\project\Frame\Java\web\src\main\java"/>
 
-<!--        <table tableName="t_user" domainObjectName="UserInfo">-->
-<!--            <generatedKey column="id" sqlStatement="SELECT(LAST_INSERT_ID())" type="pre"/>-->
-<!--        </table>-->
-
-           <table tableName="t_house" domainObjectName="HouseInfo">
+        <table tableName="t_user" domainObjectName="UserInfo">
             <generatedKey column="id" sqlStatement="SELECT(LAST_INSERT_ID())" type="pre"/>
         </table>
-
-
-
 
     </context>
 </generatorConfiguration>
