@@ -9,7 +9,7 @@ import org.mybatis.generator.api.dom.xml.Document;
 import java.util.List;
 
 /**
- * Author：RXK
+ * @Author：RXK
  * Date:2018/10/21 19:40
  * Version: V1.0.0
  * Des:
