@@ -1,8 +1,11 @@
 package com.rwx.mybatis.component.config;
 
+import com.rwx.mybatis.component.util.GeneratedFileDocUtils;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
+import org.mybatis.generator.api.dom.java.CompilationUnit;
 import org.mybatis.generator.api.dom.java.Field;
+import org.mybatis.generator.api.dom.java.JavaElement;
 import org.mybatis.generator.api.dom.java.Method;
 import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.internal.DefaultCommentGenerator;

@@ -3,15 +3,15 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-    <context id="mybatis3" targetRuntime="MyBatis3" defaultModelType="flat" introspectedColumnImpl="">
+    <context id="mybatis3" targetRuntime="MyBatis3">
         <plugin type="com.rwx.mybatis.component.config.MapperInterfaceAnnotationPlugin"/>
         <plugin type="com.rwx.mybatis.component.config.SqlMapperGenertorPlugin"/>
 <!--        <plugin type="com.rwx.mybatis.component.config.CustomerSqlAndInterfacePlugin"/>-->
 
-<!--        <plugin type="com.rwx.mybatis.component.config.ModelSetSwaggerAnnotationPlugin">-->
-<!--            <property name="swaggerApiModelPackage" value="io.swagger.annotations.ApiModel"/>-->
-<!--            <property name="swaggerApiModelPropertyPackage" value="io.swagger.annotations.ApiModelProperty"/>-->
-<!--        </plugin>-->
+        <plugin type="com.rwx.mybatis.component.config.ModelSetSwaggerAnnotationPlugin">
+            <property name="swaggerApiModelPackage" value="io.swagger.annotations.ApiModel"/>
+            <property name="swaggerApiModelPropertyPackage" value="io.swagger.annotations.ApiModelProperty"/>
+        </plugin>
 
         <!--自定义生成Service Controller层文件-->
 <!--        <plugin type="com.rwx.mybatis.component.config.JavaServicePlugin">-->
@@ -40,25 +40,19 @@
 
         <javaModelGenerator targetPackage="com.frame.web.model.dao"
                             targetProject="E:\project\Frame\Java\web\src\main\java">
-<!--            <property name="constructorBased" value="true"/>-->
-<!--            <property name="trimStrings" value="true"/>-->
+            <property name="enableSubPackages" value="true" />
+            <property name="rootClass" value="com.frame.web.model.BaseEntity"/>
         </javaModelGenerator>
         <sqlMapGenerator targetPackage="com.frame.web.mapper.xml"
                          targetProject="E:\project\Frame\Java\web\src\main\java">
-<!--            <property name="enableSubPackage" value="true"/>-->
         </sqlMapGenerator>
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.frame.web.mapper"
                              targetProject="E:\project\Frame\Java\web\src\main\java"/>
 
         <table tableName="t_user" domainObjectName="UserInfo">
-            <generatedKey column="id" sqlStatement="SELECT(REPLACE(UUID(),'-',''))" type="pre"/>
-<!--            <columnOverride column="id" property="id"/>-->
-<!--            <columnOverride column="contract_code" property="contractCode"/>-->
-<!--            <columnOverride column="money" property="money"/>-->
-<!--            <columnOverride column="payment_type" property="paymentType" javaType="Integer"/>-->
-<!--            <columnOverride column="total_periods" property="totalPeriods"/>-->
-<!--            <columnOverride column="delete_flag" property="deleteFlag" javaType="Integer"/>-->
+            <generatedKey column="id" sqlStatement="SELECT(LAST_INSERT_ID())" type="pre"/>
+            <columnOverride column="id" property="Id"/>
         </table>
 
     </context>

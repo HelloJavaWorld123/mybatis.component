@@ -1,17 +1,18 @@
 package com.rwx.mybatis.component.config;
 
+import org.apache.commons.lang3.StringUtils;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 import org.mybatis.generator.api.dom.java.Field;
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
+import org.mybatis.generator.api.dom.java.Method;
 import org.mybatis.generator.api.dom.java.TopLevelClass;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 
 /**
- * Author：RXK
+ * @Author：RXK
  * Date:2018/10/15 14:13
  * Version: V1.0.0
  * Des: 重写方法  在生成Mapper接口时，添加上@Resource注解
@@ -25,29 +26,24 @@ public class ModelSetSwaggerAnnotationPlugin extends PluginAdapter {
 
 	@Override
 	public boolean modelBaseRecordClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-		String apiModelAnnotation = "@ApiModel(value = \""+introspectedTable.getTableConfiguration().getDomainObjectName()+"\")";
-		String modelPackage = properties.getProperty("swaggerApiModelPackage", "io.swagger.annotations.ApiModel");
-		FullyQualifiedJavaType apiModelPackageType = new FullyQualifiedJavaType(modelPackage);
+		String apiModelAnnotation = "@Data";
+		FullyQualifiedJavaType apiModelPackageType = new FullyQualifiedJavaType("lombok.Data");
+		String otherAnon = "@EqualsAndHashCode(callSuper = true)";
+
 		topLevelClass.addImportedType(apiModelPackageType);
+		topLevelClass.addImportedType(new FullyQualifiedJavaType("lombok.EqualsAndHashCode"));
 		topLevelClass.addAnnotation(apiModelAnnotation);
+		topLevelClass.addAnnotation(otherAnon);
 		return super.modelBaseRecordClassGenerated(topLevelClass, introspectedTable);
 	}
 
 	@Override
-	public boolean modelFieldGenerated(Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
-		String propertyAnnotation = "@ApiModelProperty(dataType = \""+introspectedColumn.getJdbcTypeName()+"\",notes = \""+introspectedColumn.getRemarks()+"\")";
-		//自定义导入包
-		String propertyPackage = properties.getProperty("swaggerApiModelPropertyPackage");
+	public boolean modelGetterMethodGenerated(Method method, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
+		return false;
+	}
 
-		if(StringUtils.isEmpty(propertyPackage)){
-			propertyPackage = "io.swagger.annotations.ApiModelProperty";
-		}
-
-		FullyQualifiedJavaType apiModelPropertyType = new FullyQualifiedJavaType(propertyPackage);
-		//导入包路径
-		topLevelClass.addImportedType(apiModelPropertyType);
-		//增加字段的注解
-		field.addAnnotation(propertyAnnotation);
-		return super.modelFieldGenerated(field, topLevelClass, introspectedColumn, introspectedTable, modelClassType);
+	@Override
+	public boolean modelSetterMethodGenerated(Method method, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
+		return false;
 	}
 }
