@@ -14,18 +14,18 @@
 <!--        </plugin>-->
 
         <!--自定义生成Service Controller层文件-->
-<!--        <plugin type="com.rwx.mybatis.component.config.JavaServicePlugin">-->
-<!--            <property name="targetProject" value="E:\Project\胡椒车队SAAS(JAVA)\后台系统\zichan\branches\dev\src\main\java"/>-->
-<!--            <property name="targetPackage" value="com.cx580.chedui.zichan.service"/>-->
-<!--            <property name="controllerTargetPackage" value="com.cx580.chedui.zichan.controller"/>-->
-<!--            <property name="templatePath" value=""/>-->
-<!--            <property name="basePackage" value="com.cx580.chedui.zichan"/>-->
-<!--            <property name="mapperSuffix" value="Service"/>-->
-<!--            &lt;!&ndash;创建文件时的作者&ndash;&gt;-->
-<!--            <property name="author" value="RXK"/>-->
-<!--            &lt;!&ndash;以及Controller层API基础接口 有的话在生成Controller是会添加上 否则不会有&ndash;&gt;-->
-<!--            <property name="apiBaseInfo" value="/api/test/info"/>-->
-<!--        </plugin>-->
+        <plugin type="com.rwx.mybatis.component.config.JavaServicePlugin">
+            <property name="targetProject" value="E:\Project\胡椒车队SAAS(JAVA)\后台系统\zichan\branches\dev\src\main\java"/>
+            <property name="targetPackage" value="com.cx580.chedui.zichan.service"/>
+            <property name="controllerTargetPackage" value="com.cx580.chedui.zichan.controller"/>
+            <property name="templatePath" value=""/>
+            <property name="basePackage" value="com.cx580.chedui.zichan"/>
+            <property name="mapperSuffix" value="Service"/>
+            <!--创建文件时的作者-->
+            <property name="author" value=""/>
+            <!--以及Controller层API基础接口 有的话在生成Controller是会添加上 否则不会有-->
+            <property name="apiBaseInfo" value=""/>
+        </plugin>
 
 
         <commentGenerator type="com.rwx.mybatis.component.config.CustomerCommentGenerator">

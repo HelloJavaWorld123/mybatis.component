@@ -1,6 +1,5 @@
 package com.rwx.mybatis.component.config;
 
-import com.rwx.mybatis.component.util.GeneratedFileDocUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.mybatis.generator.api.GeneratedJavaFile;
 import org.mybatis.generator.api.IntrospectedTable;
@@ -136,7 +135,11 @@ public class JavaServicePlugin extends PluginAdapter {
         controller.addImportedType(new FullyQualifiedJavaType("org.springframework.web.bind.annotation.RequestMapping"));
         controller.addImportedType(new FullyQualifiedJavaType(fullyQualifiedName));
         controller.addAnnotation("@RestController");
-        controller.addAnnotation("@RequestMapping("+"\""+apiBaseInfo+"\""+")");
+        if(StringUtils.isNotEmpty(apiBaseInfo)){
+            controller.addAnnotation("@RequestMapping("+"\""+apiBaseInfo+"\""+")");
+        }else{
+            controller.addAnnotation("@RequestMapping("+""+")");
+        }
         controller.setVisibility(JavaVisibility.PUBLIC);
         Field field = new Field();
         field.setVisibility(JavaVisibility.PRIVATE);
@@ -189,9 +192,8 @@ public class JavaServicePlugin extends PluginAdapter {
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.stereotype.Service"));
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.transaction.annotation.Transactional"));
         aClass.addImportedType(new FullyQualifiedJavaType("org.springframework.beans.factory.annotation.Autowired"));
-        aClass.addFileCommentLine(GeneratedFileDocUtils.setJavaFileDoc(author));
         aClass.addAnnotation("@Service");
-        aClass.addAnnotation("@Transactional");
+        aClass.addAnnotation("@Transactional(rollbackFor = Exception.class)");
         aClass.addSuperInterface(new FullyQualifiedJavaType(service));
 
         Field field = new Field();
