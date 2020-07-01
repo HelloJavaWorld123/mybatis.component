@@ -11,7 +11,7 @@
 
     <!--字符集编码 jdkversion 有待完善-->
     <properties>
-        <mysql.version>5.1.46</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <mybatis.version>3.4.6</mybatis.version>
         <swagger.version>2.9.2</swagger.version>
         <swagger-ui.version>2.9.2</swagger-ui.version>
